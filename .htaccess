@@ -1,0 +1,5 @@
+# Disable SiteGround Dynamic Cache for all files
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store, no-cache, must-revalidate"
+  Header set X-Cache-Enabled "false"
+</IfModule>

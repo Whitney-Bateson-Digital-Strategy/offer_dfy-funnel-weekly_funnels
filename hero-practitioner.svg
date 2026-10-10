@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Placeholder for a practitioner photo">
+  <rect width="800" height="1000" fill="#f2f5f6"/>
+  <circle cx="400" cy="392" r="118" fill="#aed3dd"/>
+  <path d="M190 772c0-116 94-210 210-210s210 94 210 210v38H190z" fill="#aed3dd"/>
+  <text x="400" y="892" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#02525d">Practitioner photo</text>
+  <text x="400" y="932" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#5c5c5c">swap this file for the real one</text>
+  <rect x="22" y="22" width="756" height="956" rx="10" fill="none" stroke="#02525d" stroke-opacity=".28" stroke-width="3" stroke-dasharray="14 12"/>
+</svg>
