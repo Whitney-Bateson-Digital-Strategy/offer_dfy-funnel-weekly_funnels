@@ -11,6 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Builds one page per event from template.html + events.json
+      - name: Build event pages
+        run: node build.js
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
@@ -24,3 +28,7 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+            template.html
+            events.json
+            build.js
+            README.md

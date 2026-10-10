@@ -1,0 +1,11 @@
+{
+  "timezone": "America/New_York",
+  "events": {
+    "oct-14": {
+      "webinar": "2026-10-14",
+      "cartClose": "2026-10-19 23:59",
+      "checkoutUrl": "https://whitneybateson.thrivecart.com/done-for-you-funnel/?coupon=SAVE400",
+      "replayVideoId": ""
+    }
+  }
+}
