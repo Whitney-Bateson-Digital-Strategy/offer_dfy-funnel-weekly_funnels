@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           port: ${{ secrets.FTP_PORT }}
           local-dir: ./
-          server-dir: /public_html/done-for-you-funnel-23/
+          server-dir: /funnel/
           exclude: |
             **/.git*
             **/.git*/**
