@@ -34,6 +34,17 @@ forwards to whichever event's offer is still open.
 
 2. Commit to `main`. The deploy builds the page and puts it live.
 
+## After the deadline
+
+The page switches itself in the visitor's browser the moment `cartClose` passes. No redeploy needed.
+
+- Price goes to $1,997 everywhere (pricing box, FAQ, closing section, comparison).
+- The bonus section, the bonus lines in the pricing box, and the "special pricing ends" lines disappear.
+- The buy button goes to checkout **without** the coupon: `checkoutUrl` with `?coupon=` stripped, or `fullCheckoutUrl` if you set one on the event.
+- The top bar reads "This offer ended … Want the $400 off and the bonuses? Join the next free training," linking to `nextTrainingUrl` at the top of `events.json`.
+
+In `template.html`, anything with `class="sale-only"` shows before the deadline and `class="full-only"` after.
+
 ## After the webinar: show the replay
 
 Put the YouTube video ID in that event's `replayVideoId` (the part after `v=` in the video link) and commit.

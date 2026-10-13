@@ -133,6 +133,14 @@ section{padding:80px 0}
 
 /* replay banner */
 [hidden]{display:none!important}
+/* OFFER PHASES. Until the deadline the page shows .sale-only (discount,
+   bonuses, coupon checkout). After it, <body> gets .offer-closed and the page
+   shows .full-only instead (full price, no bonuses, plain checkout). The
+   switch happens in the browser, so no redeploy is needed at the deadline. */
+body.offer-closed .sale-only{display:none!important}
+body:not(.offer-closed) .full-only{display:none!important}
+.price-note-full a{color:var(--coral-dk);font-weight:700}
+.sb-expired a{color:var(--lime);font-weight:700;text-decoration:underline;text-underline-offset:3px}
 .replay-banner{background:var(--lime-lt);color:var(--text);padding:52px 0 58px}
 @media(max-width:860px){.replay-banner{padding:40px 0 44px}}
 @media(max-width:640px){.replay-banner{padding:32px 0 36px}}
@@ -798,6 +806,11 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
 </style>
 </head>
 <body data-deadline="2026-10-19T23:59:59-04:00">
+<script>
+/* Past the deadline? Switch to the full-price version before the page draws. */
+(function(){ var t = Date.parse(document.body.getAttribute('data-deadline'));
+  if(t && t <= Date.now()) document.body.classList.add('offer-closed'); })();
+</script>
 
 <!-- ══ STICKY OFFER BAR ════════════════════════════════════════════════
      Offer + live countdown + button in one sticky band. This replaces the
@@ -819,7 +832,7 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
         <span class="sb-dot"></span>
         <span>
           <span class="sb-live">Get your funnel plus <span class="sb-hl">$1,491 in bonuses and discounts</span> when you enroll by Monday, October 19 at 11:59 pm ET.</span>
-          <span class="sb-expired" hidden>Get your funnel built for you &ndash; <span class="sb-hl">one team, start to launch.</span></span>
+          <span class="sb-expired" hidden>This offer ended Monday, October 19. Want the $400 off and the bonuses? Join the next free training.</span>
         </span>
       </p>
       <div class="sb-actions">
@@ -1145,8 +1158,8 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
 </section>
 
 
-<!-- INCLUDED -->
-<section id="included">
+<!-- INCLUDED (bonuses: sale-only, hidden after the deadline) -->
+<section id="included" class="sale-only">
   <div class="wrap">
 
     <div class="bonus-head fi">
@@ -1319,7 +1332,7 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
     <div class="section-cta section-cta-left fi d2">
       <p class="section-cta-line">Want this running in the background of your practice?</p>
       <a class="btn btn-p" href="#pricing">Get started</a>
-      <p class="section-cta-sub">Special pricing ends Monday, October 19 at 11:59 pm ET.</p>
+      <p class="section-cta-sub sale-only">Special pricing ends Monday, October 19 at 11:59 pm ET.</p>
     </div>
   </div>
 </section>
@@ -1650,17 +1663,21 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
           <span class="c-label">Delivery email + welcome sequence</span>
           <span class="c-price">$1,600+</span>
         </div>
-        <div class="comparison-sub">
+        <div class="comparison-sub sale-only">
           <span class="c-label">The funnel, hired out piece by piece</span>
           <span class="c-price">$6,050+</span>
         </div>
-        <div class="comparison-row">
+        <div class="comparison-row sale-only">
           <span class="c-label">Plus your bonuses &ndash; Funnel Command Center, ad support, Ads Made Simple</span>
           <span class="c-price">$1,091+</span>
         </div>
-        <div class="comparison-total">
+        <div class="comparison-total sale-only">
           <span class="c-label">Hiring it all out, separately</span>
           <span class="c-price">$7,141+</span>
+        </div>
+        <div class="comparison-total full-only">
+          <span class="c-label">Hiring it all out, separately</span>
+          <span class="c-price">$6,050+</span>
         </div>
         <!-- Standard price on purpose: this row compares like for like against
              hiring it out. The sale price is revealed in .p-box just below. -->
@@ -1677,11 +1694,11 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
         Done-For-You Funnel
       </div>
 
-      <!-- LIMITED-TIME PRICE. To go back to full price: delete .price-was and
-           .price-note, and set .price-big to $1,997. -->
-      <span class="price-was">$1,997</span>
-      <span class="price-big">$1,597</span>
-      <p class="price-note"><strong>Save $400.</strong> Special pricing ends Monday, October 19 at 11:59 pm ET.</p>
+      <!-- PRICE. .sale-only shows until the deadline, .full-only after it. -->
+      <span class="price-was sale-only">$1,997</span>
+      <span class="price-big"><span class="sale-only">$1,597</span><span class="full-only">$1,997</span></span>
+      <p class="price-note sale-only"><strong>Save $400.</strong> Special pricing ends Monday, October 19 at 11:59 pm ET.</p>
+      <p class="price-note price-note-full full-only">Want $400 off plus the bonuses? Join the next free training.</p>
       <p class="p-caption">One-time payment. No ongoing fees from us.</p>
 
       <hr class="p-divider"/>
@@ -1693,9 +1710,9 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
         <li>Thank you page</li>
         <li>Delivery email + welcome sequence, written and set up</li>
         <li>Facebook &amp; Instagram ad campaign – copy, creative, targeting, and launch</li>
-        <li class="inc-bonus"><span><span class="inc-bonus-tag">Bonus</span><strong>Your Funnel Command Center</strong> – Notion hub with walkthrough videos and every file we built</span></li>
-        <li class="inc-bonus"><span><span class="inc-bonus-tag">Bonus</span><strong>7 days of support</strong> while your ads go live</span></li>
-        <li class="inc-bonus"><span><span class="inc-bonus-tag">Bonus</span><strong>Ads Made Simple course</strong> – learn how to run, edit, and monitor your own ads</span></li>
+        <li class="inc-bonus sale-only"><span><span class="inc-bonus-tag">Bonus</span><strong>Your Funnel Command Center</strong> – Notion hub with walkthrough videos and every file we built</span></li>
+        <li class="inc-bonus sale-only"><span><span class="inc-bonus-tag">Bonus</span><strong>7 days of support</strong> while your ads go live</span></li>
+        <li class="inc-bonus sale-only"><span><span class="inc-bonus-tag">Bonus</span><strong>Ads Made Simple course</strong> – learn how to run, edit, and monitor your own ads</span></li>
       </ul>
 
       <hr class="p-divider"/>
@@ -1705,7 +1722,8 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
       <hr class="p-divider"/>
 
 
-      <a class="btn btn-p btn-block" href="https://whitneybateson.thrivecart.com/done-for-you-funnel/?coupon=SAVE400" target="_blank" rel="noopener">Get started · $1,597</a>
+      <a class="btn btn-p btn-block sale-only" href="https://whitneybateson.thrivecart.com/done-for-you-funnel/?coupon=SAVE400" target="_blank" rel="noopener">Get started · $1,597</a>
+      <a class="btn btn-p btn-block full-only" href="https://whitneybateson.thrivecart.com/done-for-you-funnel/" target="_blank" rel="noopener">Get started · $1,997</a>
       <!-- Accepted cards, shown under the buy button. Inline SVG, no image files. -->
       <div class="p-pay" aria-label="Secure checkout. We accept Visa, Mastercard, American Express and Discover.">
         <span class="p-pay-secure"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 0 1 6 0v3H9z"/></svg>Secure checkout</span>
@@ -1752,7 +1770,7 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
 
       <details class="faq-item">
         <summary class="faq-q">How much will the ads cost me?</summary>
-        <div class="faq-a">About $150/month at $5/day, paid directly to Meta. That's separate from the $1,597 you pay us. You own the ad account, control the budget, and can pause anytime.</div>
+        <div class="faq-a">About $150/month at $5/day, paid directly to Meta. That's separate from the <span class="sale-only">$1,597</span><span class="full-only">$1,997</span> you pay us. You own the ad account, control the budget, and can pause anytime.</div>
       </details>
 
       <details class="faq-item">
@@ -1808,9 +1826,9 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
   <div class="wrap">
     <div class="fi">
       <h2>If you've been meaning to build this for a while, <span class="ul">this is the shortcut</span>.</h2>
-      <p class="sub"><span class="nb">$1,597 one-time, until Monday, October 19 at 11:59 pm ET.</span> <span class="nb">We do the work. You finally get a system bringing in new leads while you focus on your practice.</span></p>
+      <p class="sub"><span class="nb sale-only">$1,597 one-time, until Monday, October 19 at 11:59 pm ET.</span><span class="nb full-only">$1,997 one-time.</span> <span class="nb">We do the work. You finally get a system bringing in new leads while you focus on your practice.</span></p>
       <div class="close-ctas">
-        <a class="btn btn-p" href="#pricing">Get started · $1,597</a>
+        <a class="btn btn-p" href="#pricing">Get started · <span class="sale-only">$1,597</span><span class="full-only">$1,997</span></a>
         <a class="btn btn-s" href="https://whitneybateson.as.me/dfy-funnel-discovery" target="_blank" rel="noopener">Book a call first</a>
       </div>
       <p class="close-note">Questions? Email me at <a href="mailto:info@whitneybateson.com">info@whitneybateson.com</a></p>
@@ -2001,6 +2019,7 @@ els.forEach(el => io.observe(el));
 
   function expire(c){
     c.el.hidden = true;
+    if(!c.el.hasAttribute('data-deadline')) document.body.classList.add('offer-closed');
     /* Take the "Bonuses expire in" label down with its clock. */
     var wrap = c.el.closest && c.el.closest('.bonus-timer');
     if(wrap) wrap.hidden = true;

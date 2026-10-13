@@ -15,6 +15,10 @@ const root = __dirname;
 const config = JSON.parse(fs.readFileSync(path.join(root, 'events.json'), 'utf8'));
 const template = fs.readFileSync(path.join(root, 'template.html'), 'utf8');
 const tz = config.timezone || 'America/New_York';
+/* Where late visitors go to earn the discount again: the weekly webinar
+   registration page. Set once in events.json as "nextTrainingUrl". */
+const trainingUrl = (config.nextTrainingUrl || '').trim();
+if (!trainingUrl) console.warn('build.js: events.json has no nextTrainingUrl, so "Join the next free training" will not be a link');
 
 function fail(msg) { console.error('build.js: ' + msg); process.exit(1); }
 
@@ -68,12 +72,26 @@ const built = slugs.map(slug => {
   const w = words(close.instant);
   const videoId = (ev.replayVideoId || '').trim();
 
+  /* After the deadline the page sells at full price through the plain checkout
+     link: "fullCheckoutUrl" if the event sets one, otherwise checkoutUrl with
+     its ?coupon= removed. */
+  let fullUrl = (ev.fullCheckoutUrl || '').trim();
+  if (!fullUrl) {
+    const u = new URL(ev.checkoutUrl);
+    u.searchParams.delete('coupon');
+    fullUrl = u.toString();
+  }
+  const amp = v => v.replace(/&(?!amp;)/g, '&amp;').replace(/"/g, '&quot;');
+
   const values = {
     DEADLINE_ISO: close.iso,
     DEADLINE_LONG: w.long,
     DEADLINE_DATE: w.date,
     DEADLINE_DAY: w.day,
-    CHECKOUT_URL: ev.checkoutUrl.replace(/&(?!amp;)/g, '&amp;'),
+    CHECKOUT_URL: amp(ev.checkoutUrl),
+    CHECKOUT_URL_FULL: amp(fullUrl),
+    TRAINING_LINK_OPEN: trainingUrl ? `<a href="${amp(trainingUrl)}">` : '',
+    TRAINING_LINK_CLOSE: trainingUrl ? '</a>' : '',
     REPLAY_HIDDEN: videoId ? '' : ' hidden',
     REPLAY_SRC: videoId ? `https://www.youtube.com/embed/${videoId}?autoplay=1&amp;rel=0` : ''
   };
@@ -89,6 +107,7 @@ const built = slugs.map(slug => {
   fs.mkdirSync(path.join(root, slug), { recursive: true });
   fs.writeFileSync(path.join(root, slug, 'index.html'), html);
   console.log(`${slug}/index.html  - offer ends ${w.long}  (${close.iso})` + (videoId ? '' : '  - replay banner hidden'));
+  console.log(`    after that: full price via ${fullUrl}`);
   return { slug, close: close.iso, at: close.instant.getTime() };
 }).sort((a, b) => a.at - b.at);
 

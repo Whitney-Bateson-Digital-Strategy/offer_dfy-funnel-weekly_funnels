@@ -1,5 +1,6 @@
 {
   "timezone": "America/New_York",
+  "nextTrainingUrl": "",
   "events": {
     "oct-14": {
       "webinar": "2026-10-14",
