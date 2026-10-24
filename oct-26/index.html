@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<!-- GENERATED FILE - do not edit. Edit template.html or events.json, then run: node build.js -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Done-For-You Funnel Build · Whitney Bateson</title>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H7YP1941S5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H7YP1941S5');
+</script>
+<!-- Hotjar -->
+<script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:3572588,hjsv:6};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+/* scroll-padding keeps #anchor jumps clear of the sticky offer bar */
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@media(max-width:1040px){html{scroll-padding-top:142px}}
+@media(max-width:560px){html{scroll-padding-top:152px}}
+
+:root{
+  --cream:#faf8f4;
+  --soft:#faf8f4;
+  --hi:rgba(227,246,150,0.30);
+  --hi-md:rgba(227,246,150,0.62);
+  --navy:#02525d;
+  --navy-dk:#013d46;
+  --coral:#ff7f50;
+  --coral-dk:#e6663b;
+  --pink:#ffcdcd;
+  --lime:#e3f696;
+  --lime-lt:#f0fac5;   /* ~55% lime over white - softer band for the replay banner */
+  --text:#1a1a1a;
+  --muted:#5c5c5c;
+  --white:#ffffff;
+  --border:rgba(26,26,26,0.09);
+  --peach:rgba(255,127,80,0.16);
+  --coral-lt:rgba(255,127,80,0.32);  /* slider tracks - reads as light coral/pink */
+  --r:6px;
+  --r-lg:8px;
+  --sh-sm:0 1px 3px rgba(2,82,93,0.05);
+  --sh-md:0 4px 22px rgba(2,82,93,0.08);
+  --head:'Cormorant Garamond',Georgia,serif;
+  --body:'Nunito',system-ui,sans-serif;
+  --mw:1240px
+}
+
+body{font-family:var(--body);background:var(--white);color:var(--text);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--head);line-height:1.18;font-weight:600;color:var(--navy)}
+p{margin-bottom:16px}p:last-child{margin-bottom:0}
+a{color:var(--navy)}
+
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 36px}
+@media(max-width:640px){.wrap{padding:0 20px}}
+section{padding:80px 0}
+@media(max-width:640px){section{padding:52px 0}}
+
+/* fade in */
+.fi{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.fi.on{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}
+
+/* ── STICKY OFFER BAR ────────────────────────────────────────────────
+   Replaces the old thin urgency strip AND the white nav: one sticky band
+   carrying the offer, the countdown, and the button.
+
+   THE DEADLINE is not edited here. This file is the template for every
+   weekly event page: each event's dates live in events.json, and build.js
+   fills in data-deadline on <body> and every written-out date.
+   TO SWITCH TO THE WHITE VERSION: add class="offer-bar offer-bar-light"
+   on the <div class="offer-bar"> in the markup.
+─────────────────────────────────────────────────────────────────── */
+.offer-bar{position:sticky;top:0;z-index:101;background:var(--navy-dk);color:var(--white);padding:15px 0;box-shadow:0 2px 14px rgba(1,61,70,.18)}
+.offer-row{display:flex;align-items:center;justify-content:center;gap:14px 28px;flex-wrap:wrap}
+.sb-copy{display:flex;align-items:center;gap:11px;max-width:660px;font-size:16.5px;font-weight:600;line-height:1.35;letter-spacing:.004em;margin:0;text-align:left}
+.sb-dot{width:8px;height:8px;border-radius:50%;background:var(--lime);flex-shrink:0;animation:pulse 2s infinite}
+.sb-hl{color:var(--lime);font-weight:700}
+.sb-actions{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.sb-count{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.sb-unit{display:flex;flex-direction:column;align-items:center;min-width:48px;padding:5px 7px 6px;border-radius:5px;background:rgba(255,255,255,.11);line-height:1}
+.sb-num{font-family:var(--head);font-size:21px;font-weight:600;color:var(--lime);font-variant-numeric:tabular-nums}
+.sb-lbl{margin-top:4px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.sb-cta{flex-shrink:0;font-size:12px;padding:13px 24px}
+/* Light variant, if the navy reads too heavy at this size. */
+.offer-bar-light{background:var(--white);color:var(--text);border-bottom:1px solid var(--border);box-shadow:0 2px 12px rgba(2,82,93,.07)}
+.offer-bar-light .sb-copy{color:var(--navy)}
+.offer-bar-light .sb-dot{background:var(--coral)}
+.offer-bar-light .sb-hl{color:var(--navy);background:var(--hi-md);padding:1px 6px;border-radius:3px}
+.offer-bar-light .sb-unit{background:var(--hi-md)}
+.offer-bar-light .sb-num{color:var(--navy)}
+.offer-bar-light .sb-lbl{color:var(--muted)}
+@media(max-width:1180px){.sb-copy{font-size:15.5px;max-width:500px}.offer-row{gap:12px 18px}.sb-cta{padding:12px 20px}}
+/* Under ~1040px the copy takes the full width and the countdown sits beside
+   the button, so the sticky bar never eats more than two rows of height. */
+@media(max-width:1040px){.offer-bar{padding:12px 0}.offer-row{flex-direction:column;gap:11px}.sb-copy{display:block;max-width:640px;text-align:center;font-size:15px}.sb-dot{display:inline-block;vertical-align:middle;margin:-2px 8px 0 0}.sb-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}}
+@media(max-width:560px){.offer-bar{padding:11px 0}.offer-row{gap:10px}.sb-copy{font-size:13.5px;line-height:1.32;text-align:left}.sb-count{gap:5px}.sb-unit{min-width:38px;padding:4px 5px 5px}.sb-unit-sec{display:none}.sb-num{font-size:17px}.sb-lbl{font-size:8.5px}.sb-cta{font-size:11px;padding:11px 15px}.sb-actions{gap:10px}}
+/* Narrowest phones: trim the button and units so the actions stay on one row. */
+@media(max-width:400px){.sb-actions{gap:8px}.sb-unit{min-width:34px;padding:4px 4px 5px}.sb-cta{padding:11px 11px;letter-spacing:.05em}}
+@media(prefers-reduced-motion:reduce){.sb-dot{animation:none}}
+
+/* buttons */
+.btn{display:inline-block;font-family:var(--body);font-weight:700;font-size:12px;letter-spacing:.085em;text-transform:uppercase;text-decoration:none;border:none;border-radius:4px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s,border-color .2s;white-space:nowrap}
+.btn-sm{background:var(--coral);color:var(--white);font-size:11px;padding:9px 17px}
+.btn-sm:hover{background:var(--coral-dk);transform:translateY(-1px)}
+.btn-p{background:var(--coral);color:var(--white);padding:13px 25px}
+.btn-p:hover{background:var(--coral-dk);transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,127,80,.32)}
+.btn-s{background:var(--white);color:var(--navy);padding:12px 24px;border:1px solid rgba(2,82,93,.3)}
+.btn-s:hover{background:var(--soft);border-color:var(--navy);transform:translateY(-1px)}
+.btn-block{display:block;width:100%;text-align:center}
+/* The pricing CTA is the button the whole page points at, so it carries more
+   weight than the inline ones. */
+#pricing .btn-block{font-size:14.5px;letter-spacing:.07em;padding:18px 25px}
+
+/* labels */
+.pill{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:18px}
+.slabel{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+
+/* replay banner */
+[hidden]{display:none!important}
+/* OFFER PHASES. Until the deadline the page shows .sale-only (discount,
+   bonuses, coupon checkout). After it, <body> gets .offer-closed and the page
+   shows .full-only instead (full price, no bonuses, plain checkout). The
+   switch happens in the browser, so no redeploy is needed at the deadline. */
+body.offer-closed .sale-only{display:none!important}
+body:not(.offer-closed) .full-only{display:none!important}
+.price-note-full a{color:var(--coral-dk);font-weight:700}
+.sb-expired a{color:var(--lime);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.replay-banner{background:var(--lime-lt);color:var(--text);padding:52px 0 58px}
+@media(max-width:860px){.replay-banner{padding:40px 0 44px}}
+@media(max-width:640px){.replay-banner{padding:32px 0 36px}}
+/* Centred stack: eyebrow -> title -> subhead -> video, video doing the talking. */
+.replay-copy{max-width:760px;margin:0 auto 30px;text-align:center}
+@media(max-width:640px){.replay-copy{margin-bottom:24px}}
+.replay-embed{width:100%;max-width:780px;margin:0 auto}
+.replay-eyebrow{display:block;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:14px}
+.replay-h{font-size:clamp(1.45rem,3vw,2.1rem);color:var(--navy);margin:0 auto 14px;line-height:1.2;max-width:700px}
+.replay-sub{font-size:16px;color:var(--text);line-height:1.6;margin:0 auto;max-width:600px}
+@media(max-width:640px){.replay-sub{font-size:15px}}
+.replay-frame{position:relative;width:100%;padding-bottom:56.25%;border-radius:var(--r-lg);overflow:hidden;background:var(--navy-dk);box-shadow:0 6px 22px rgba(0,0,0,.24)}
+.replay-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.replay-cover{position:absolute;inset:0;width:100%;height:100%;padding:0;border:none;background:none;cursor:pointer;display:block}
+.replay-cover:disabled{cursor:default}
+.replay-cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.replay-play{position:absolute;top:var(--play-y,50%);left:var(--play-x,50%);transform:translate(-50%,-50%);width:72px;height:72px;display:block;transition:transform .22s ease;filter:drop-shadow(0 2px 5px rgba(2,82,93,.3)) drop-shadow(0 10px 26px rgba(2,82,93,.28))}
+.replay-play svg{width:100%;height:100%;display:block}
+.replay-cover:not(:disabled):hover .replay-play{transform:translate(-50%,-50%) scale(1.12)}
+/* The button sits over the photo panel of the title card so it never covers
+   the headline. Re-centre it by setting --play-x/--play-y back to 50%. */
+.replay-cover{--play-x:17.8%;--play-y:50%}
+.replay-cover:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+@media(max-width:860px){.replay-play{width:62px;height:62px}}
+@media(max-width:480px){.replay-play{width:48px;height:48px}}
+@media(prefers-reduced-motion:reduce){.replay-play{transition:none}}
+
+/* hero */
+#hero{padding:96px 0 80px;position:relative;overflow:hidden;background:var(--white)}
+@media(max-width:768px){#hero{padding:60px 0 52px}}
+.hero-cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+@media(max-width:860px){.hero-cols{grid-template-columns:1fr;gap:40px}}
+.hero-inner{max-width:100%;position:relative;z-index:1}
+.hero-h1{font-size:clamp(2.4rem,5vw,3.4rem);margin-bottom:22px;color:var(--navy)}
+.hero-h1 em{font-style:normal;color:var(--navy);background:var(--peach);padding:2px 10px;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero-sub{font-size:18px;color:var(--muted);margin-bottom:32px;line-height:1.62}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
+.hero-note{font-size:14px;color:var(--text);font-style:italic;font-weight:600}
+.hero-photo-col{position:relative;z-index:1}
+.hero-photo-wrap{position:relative;width:100%;margin-left:auto;aspect-ratio:3/2;border-radius:var(--r-lg);overflow:hidden;background:var(--cream);box-shadow:var(--sh-md)}
+.hero-photo{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:860px){.hero-photo-col{order:-1}.hero-photo-wrap{margin:0 auto;max-width:520px}}
+
+/* who-for marquee strip */
+#strip{background:var(--cream);padding:40px 0 0;border-top:1px solid var(--border)}
+.strip-label{display:flex;align-items:center;justify-content:center;gap:14px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);margin-bottom:20px;padding:0 20px}
+.strip-label::before,.strip-label::after{content:'';flex:0 0 40px;height:1px;background:rgba(2,82,93,0.25)}
+.marquee-bar{background:var(--navy);padding:18px 0;overflow:hidden;position:relative;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.marquee{display:flex;overflow:hidden;mask-image:linear-gradient(to right,transparent 0%,#000 6%,#000 94%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 6%,#000 94%,transparent 100%)}
+.marquee-track{display:flex;gap:0;flex-shrink:0;animation:marqueeScroll 45s linear infinite;will-change:transform;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:translateZ(0)}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center;gap:14px 28px;padding:0 20px}}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-item{display:inline-block;font-size:16px;color:var(--white);white-space:nowrap;font-weight:500;line-height:1.5;padding:4px 28px;position:relative}
+.marquee-item::after{content:'✨';position:absolute;right:-8px;top:50%;transform:translateY(-50%);font-size:14px;line-height:1;opacity:.85}
+.marquee-item .accent{color:var(--lime);font-weight:700}
+@keyframes marqueeScroll{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-50%,0,0)}}
+
+/* problem - panel-based architecture */
+#problem{background:var(--white);padding:80px 0}
+@media(max-width:640px){#problem{padding:56px 0}}
+.prob-wrap{max-width:780px;margin:0 auto}
+.prob-intro{text-align:center;margin-bottom:48px}
+.prob-intro .slabel{display:inline-block;margin-bottom:14px}
+.prob-intro h2{font-size:clamp(1.65rem,3.8vw,2.35rem);line-height:1.18;color:var(--navy)}
+.prob-intro h2 .accent{color:var(--navy);font-style:italic}
+
+/* panel 1: the checkmark card */
+.prob-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:40px 44px;box-shadow:var(--sh-md);margin-bottom:64px}
+@media(max-width:640px){.prob-card{padding:28px 24px;margin-bottom:48px}}
+.prob-card-label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--lime);padding:7px 14px;border-radius:3px;margin-bottom:24px;width:fit-content}
+.prob-check-list{list-style:none;margin:0;padding:0}
+.prob-check-list li{display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start;padding:18px 0;font-size:16px;line-height:1.62;color:var(--text)}
+.prob-check-list li:not(:last-child){border-bottom:1px solid var(--border)}
+.prob-check-list .prob-check-icon{width:24px;height:24px;border-radius:50%;border:1.5px solid var(--coral);background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;color:var(--navy);font-size:13px;font-weight:700;line-height:1}
+.prob-check-list .hl{background:rgba(227,246,150,0.75);padding:2px 6px;border-radius:3px;margin:0 -2px;font-weight:600;color:var(--text)}
+.prob-check-list em{font-style:italic;font-weight:600;color:var(--text);font-size:16px;display:block;margin-top:6px}
+
+/* panel 2: the truth bomb */
+.prob-truth-panel{text-align:left;padding:24px 0 64px;max-width:780px;margin:0 auto}
+@media(max-width:640px){.prob-truth-panel{padding:8px 0 48px}}
+.prob-truth-intro{font-size:17px;color:var(--text);font-style:italic;font-weight:600;margin-bottom:18px;line-height:1.55}
+.prob-truth-big{font-family:var(--head);font-size:clamp(1.75rem,3.8vw,2.6rem);line-height:1.22;color:var(--navy);font-weight:600;margin-bottom:20px}
+.prob-truth-big .l{display:block}
+.prob-truth-big .hl-yellow{background:linear-gradient(180deg,transparent 55%,rgba(227,246,150,0.85) 55%);padding:0 6px}
+.prob-truth-big .accent{color:var(--navy);font-style:italic}
+.prob-truth-after{font-size:17px;color:var(--text);line-height:1.62;max-width:660px;margin:0}
+.prob-truth-after .nb{color:var(--navy);font-weight:700}
+
+/* expertise – full-bleed navy section closing the problem */
+#capacity{background:var(--cream);color:var(--text);padding:88px 0;text-align:center}
+@media(max-width:640px){#capacity{padding:64px 0}}
+.prob-close-inner{max-width:680px;margin:0 auto}
+.prob-close-eyebrow{font-family:var(--head);font-style:italic;font-weight:600;font-size:19px;color:var(--text);margin:0 0 18px;line-height:1.4}
+.prob-close-h{font-family:var(--head);font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:500;line-height:1.22;color:var(--navy);margin:0 0 22px}
+.prob-close-h .accent-light{color:var(--coral);font-style:italic}
+.prob-close-body{font-size:17px;color:var(--text);line-height:1.65;max-width:720px;margin:0 auto 18px}
+.prob-close-tag{font-family:var(--head);font-style:italic;font-weight:600;font-size:20px;color:var(--navy);margin:0;line-height:1.4}
+.prob-close-heart{font-style:normal;margin-left:4px}
+/* Shared end-of-section CTA block. Centres itself rather than relying on the
+   section around it, since not every host section is centred. */
+.section-cta{text-align:center;margin-top:40px;padding-top:40px;border-top:1px solid var(--border);max-width:520px;margin-left:auto;margin-right:auto}
+.section-cta-line{font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.15rem,2.4vw,1.4rem);color:var(--navy);margin:0 0 22px;line-height:1.4}
+.btn-light{background:var(--coral);color:var(--white);padding:13px 25px}
+.btn-light:hover{background:var(--coral-dk);transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,127,80,.32)}
+.section-cta-sub{font-size:14px;color:var(--text);font-style:italic;font-weight:600;margin:14px 0 0}
+/* Left-aligned variant, for sections whose content runs to the left edge. */
+.section-cta-left{text-align:left;margin-left:0;margin-right:0;max-width:620px}
+.ul-light{text-decoration:underline;text-decoration-color:var(--coral);text-decoration-thickness:2px;text-underline-offset:4px;color:var(--coral-dk);font-weight:600}
+
+/* cost of inaction calculator */
+.cost-calc{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:40px 44px;box-shadow:var(--sh-md);margin-bottom:32px}
+@media(max-width:640px){.cost-calc{padding:28px 22px}}
+.cost-calc-head{text-align:center;margin-bottom:28px}
+.cost-calc-title{font-family:var(--head);font-size:clamp(1.4rem,3vw,1.9rem);font-weight:500;line-height:1.22;color:var(--text);margin:0}
+.cost-calc-title .accent{color:var(--navy);font-style:italic}
+.cost-calc-sub{font-size:16px;color:var(--muted);line-height:1.6;max-width:520px;margin:14px auto 0}
+.cost-calc-inputs{display:flex;flex-direction:column;gap:22px;margin-bottom:32px}
+.cost-calc-row{display:grid;grid-template-columns:1fr 1fr auto;gap:16px;align-items:center}
+@media(max-width:640px){.cost-calc-row{grid-template-columns:1fr auto;gap:8px 14px}.cost-calc-row label{grid-column:1 / -1}.cost-calc-row input{grid-column:1}.cost-calc-row .cost-calc-out{grid-column:2}}
+.cost-calc-row label{font-size:14px;color:var(--text);font-weight:600}
+.cost-calc-row input[type="range"]{width:100%;height:7px;-webkit-appearance:none;appearance:none;background:var(--coral-lt);border-radius:999px;outline:none;cursor:pointer}
+.cost-calc-row input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;background:var(--coral);border-radius:50%;cursor:pointer;border:3px solid var(--white);box-shadow:0 2px 6px rgba(255,127,80,.3);transition:transform .15s}
+.cost-calc-row input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.1)}
+.cost-calc-row input[type="range"]::-moz-range-thumb{width:22px;height:22px;background:var(--coral);border-radius:50%;cursor:pointer;border:3px solid var(--white);box-shadow:0 2px 6px rgba(255,127,80,.3)}
+.cost-calc-out{font-family:var(--head);font-size:18px;font-weight:600;color:var(--navy);min-width:72px;text-align:right}
+.cost-calc-results{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px}
+@media(max-width:540px){.cost-calc-results{grid-template-columns:1fr}}
+.cost-calc-result{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:24px;text-align:center}
+.cost-calc-result-accent{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.cost-calc-label{display:block;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;margin-bottom:10px;color:var(--muted)}
+.cost-calc-result-accent .cost-calc-label{color:rgba(255,255,255,0.8)}
+.cost-calc-value{display:block;font-family:var(--head);font-size:clamp(2rem,5vw,2.75rem);font-weight:600;line-height:1.05;color:var(--text)}
+.cost-calc-result-accent .cost-calc-value{color:var(--white)}
+/* Testimonial under the calculator. Deliberately quiet - the numbers above
+   are the loud part, this just says someone actually got the system. */
+.calc-proof{max-width:660px;margin:28px auto 0;padding:26px 30px;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);text-align:center}
+@media(max-width:640px){.calc-proof{padding:20px 20px;margin-top:22px}}
+.calc-proof blockquote{margin:0;font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.05rem,2.1vw,1.25rem);line-height:1.5;color:var(--navy)}
+.calc-proof blockquote strong{font-weight:700}
+.calc-proof figcaption{margin-top:14px;font-size:13px;line-height:1.45;color:var(--muted)}
+.calc-proof-name{font-weight:700;color:var(--navy);display:block;font-size:14px}
+.calc-proof-role{display:block}
+.cost-calc-caption{text-align:center;font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.15rem,2.3vw,1.4rem);color:var(--text);margin:0;line-height:1.45;min-height:1.45em;transition:opacity .2s}
+
+/* how it works */
+/* Lightened and graded rather than a flat block of full-strength lime. */
+#how{padding-bottom:40px;background:linear-gradient(180deg,var(--lime-lt) 0%,#f7fce4 55%,var(--cream) 100%)}
+#how h2{font-size:clamp(1.75rem,3.6vw,2.45rem);margin-bottom:40px;max-width:820px;text-wrap:balance}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:700px){.steps{grid-template-columns:1fr}}
+.step-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:28px;box-shadow:0 4px 18px rgba(2,82,93,.10)}
+.step-num{font-family:var(--head);font-size:1.9rem;font-weight:700;color:var(--coral);margin-bottom:6px;display:block;line-height:1}
+.step-card h3{font-size:1.1rem;margin-bottom:8px;color:var(--navy)}
+.step-card p{font-size:16px;color:var(--muted);line-height:1.62;margin:0}
+
+/* included */
+#included{background:var(--soft)}
+#included h2{font-size:clamp(1.75rem,4vw,2.6rem);margin-bottom:10px}
+.inc-sub{font-size:17px;color:var(--muted);max-width:540px;margin-bottom:0}
+
+/* transform */
+#transform{background:var(--soft);padding:80px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+@media(max-width:640px){#transform{padding:52px 0}}
+#transform h2{font-size:clamp(1.75rem,4vw,2.6rem);margin-bottom:14px;max-width:540px}
+#transform .lead{font-size:17px;color:var(--muted);max-width:560px;margin-bottom:44px;line-height:1.65}
+.outcome-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:640px){.outcome-grid{grid-template-columns:1fr}}
+.outcome-item{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:22px 24px;box-shadow:var(--sh-sm);display:flex;gap:14px;align-items:flex-start}
+.o-emoji{font-size:20px;flex-shrink:0;margin-top:2px;line-height:1}
+.o-text{font-size:16px;color:var(--text);line-height:1.58}
+.o-text strong{font-weight:700;color:var(--navy)}
+
+/* about */
+#about{background:var(--white)}
+/* about - the experts */
+#about{background:var(--white);padding-bottom:72px}
+@media(max-width:640px){#about{padding-bottom:52px}}
+#about .pull-quote{background:var(--cream)}
+#about .about-head{text-align:center;max-width:640px;margin:0 auto 48px}
+#about .about-head h2{font-size:clamp(1.75rem,4vw,2.6rem);margin-bottom:14px;line-height:1.25}
+#about .about-head p{font-size:17px;color:var(--muted);line-height:1.6}
+.experts-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:980px;margin:0 auto}
+@media(max-width:760px){.experts-grid{grid-template-columns:1fr;gap:32px}}
+.expert-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:36px;box-shadow:var(--sh-sm);display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+@media(max-width:540px){.expert-card{padding:28px 24px;align-items:center;text-align:center}}
+.expert-photo{width:120px;height:120px;border-radius:50%;background:var(--hi-md);overflow:hidden;flex-shrink:0;border:3px solid var(--lime)}
+.expert-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.expert-name{font-family:var(--head);font-size:1.35rem;color:var(--text);margin-bottom:2px;line-height:1.2}
+.expert-role{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--coral);display:block;margin-bottom:14px}
+.expert-bio{font-size:16px;color:var(--muted);line-height:1.65;margin:0}
+.experts-footer{text-align:center;max-width:580px;margin:36px auto 0;font-size:16px;color:var(--text);line-height:1.6}
+.experts-footer strong{color:var(--navy);font-weight:600}
+
+/* comparison / goldilocks */
+#compare{background:var(--white);padding:48px 0 88px}
+@media(max-width:640px){#compare{padding:64px 0}}
+.cmp-head{text-align:center;max-width:680px;margin:0 auto 52px}
+.cmp-head h2{font-size:clamp(1.75rem,4vw,2.6rem);margin-bottom:14px;line-height:1.25}
+.cmp-head p{font-size:17px;color:var(--muted);line-height:1.6;margin:0}
+.cmp-grid{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:20px;max-width:1140px;margin:0 auto;align-items:start}
+@media(max-width:860px){.cmp-grid{grid-template-columns:1fr;gap:24px;max-width:520px}}
+.cmp-col{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px 28px;box-shadow:var(--sh-sm);position:relative}
+.cmp-col-muted{background:var(--soft);box-shadow:none}
+.cmp-col-best{border:2px solid var(--coral);box-shadow:var(--sh-md);padding-top:42px;background:var(--white)}
+.cmp-x-icon{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--border);align-items:center;justify-content:center;font-size:13px;color:var(--muted);font-weight:700;margin-bottom:14px;line-height:1}
+.cmp-pill{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--coral);color:var(--white);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 12px rgba(255,127,80,0.35)}
+.cmp-label{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.cmp-col-best .cmp-label{color:var(--navy)}
+.cmp-col h3{font-family:var(--head);font-size:1.3rem;font-weight:500;color:var(--navy);margin-bottom:20px;line-height:1.25}
+.cmp-col-best h3{color:var(--navy)}
+.cmp-list{list-style:none;margin:0;padding:0}
+.cmp-list li{display:grid;grid-template-columns:20px 1fr;gap:10px;padding:14px 0;font-size:15px;line-height:1.55;color:var(--text);border-bottom:1px solid var(--border)}
+.cmp-list li:last-child{border-bottom:none;padding-bottom:0}
+.cmp-list li:first-child{padding-top:0}
+.cmp-icon{flex-shrink:0;margin-top:3px;font-size:14px;line-height:1;color:var(--muted)}
+.cmp-col-best .cmp-icon{color:var(--navy);font-weight:700;font-size:15px}
+.cmp-tagline{text-align:center;max-width:680px;margin:48px auto 28px;font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.1rem,2.2vw,1.35rem);color:var(--text);line-height:1.55}
+.cmp-tagline strong{color:var(--navy);font-style:normal;font-weight:600}
+.cmp-cta-wrap{text-align:center;margin-top:8px}
+
+/* gut check / fit */
+#fit{background:var(--soft);padding:80px 0;border-top:1px solid var(--border)}
+@media(max-width:640px){#fit{padding:56px 0}}
+.fit-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.fit-head h2{font-size:clamp(1.75rem,4vw,2.6rem);line-height:1.25;margin:0}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:980px;margin:0 auto;align-items:start}
+.fit-cta{text-align:center;margin-top:38px}
+@media(max-width:760px){.fit-grid{grid-template-columns:1fr;gap:18px;max-width:520px}}
+.fit-col{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px 30px;box-shadow:var(--sh-sm)}
+.fit-col h3{font-family:var(--head);font-size:1.2rem;font-weight:500;color:var(--navy);margin-bottom:18px;line-height:1.3}
+.fit-col-yes h3{color:var(--navy)}
+.fit-list{list-style:none;margin:0;padding:0}
+.fit-list li{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:14px 0;font-size:15px;line-height:1.55;color:var(--text);border-bottom:1px solid var(--border)}
+.fit-list li:last-child{border-bottom:none;padding-bottom:0}
+.fit-list li:first-child{padding-top:0}
+.fit-icon{flex-shrink:0;margin-top:2px;line-height:1;font-weight:700}
+.fit-col-yes .fit-icon{color:var(--navy);font-size:15px}
+.fit-col-no .fit-icon{color:var(--muted);font-weight:500;font-size:14px}
+
+/* pricing */
+#pricing{background:var(--soft);text-align:center}
+#pricing h2{font-size:clamp(1.75rem,4vw,2.6rem);margin-bottom:10px;max-width:580px;margin-left:auto;margin-right:auto}
+#pricing .slabel{text-align:center}
+.p-intro{font-size:17px;color:var(--muted);max-width:560px;margin:0 auto 36px}
+.p-box{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh-md);padding:44px;max-width:640px;margin:0 auto;text-align:left}
+@media(max-width:640px){.p-box{padding:28px 22px}}
+.beta-badge{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--navy);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;padding:6px 14px;margin-bottom:24px}
+.beta-dot{width:7px;height:7px;border-radius:50%;background:var(--navy);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.82)}}
+/* The struck full price sits above, quiet, so the live one still reads first. */
+.price-was{display:block;font-family:var(--head);font-size:2.1rem;font-weight:600;color:var(--muted);line-height:1;margin-bottom:6px;text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:rgba(255,127,80,.85)}
+.price-big{font-family:var(--head);font-size:3.2rem;font-weight:600;color:var(--navy);line-height:1;display:block;margin-bottom:8px}
+.price-note{font-size:14.5px;color:var(--coral-dk);margin-bottom:6px;line-height:1.5}
+.price-note strong{color:var(--coral-dk);font-weight:700}
+.p-was{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.p-caption{font-size:16px;color:var(--muted);margin-bottom:0}
+.p-divider{border:0;border-top:1px solid var(--border);margin:22px 0}
+.p-eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+.p-ad{font-size:14px;color:var(--muted);text-align:center;margin:0;line-height:1.55}
+.p-pay{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px;margin:14px 0 0}
+.p-pay-secure{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;color:var(--muted)}
+.p-pay-cards{display:inline-flex;gap:6px}
+.p-card{width:40px;height:25px;display:block}
+.p-split{text-align:center;font-size:14px;color:var(--muted);margin:10px 0 0}
+.p-call{text-align:center;margin-top:18px}
+.p-call-q{font-size:14px;color:var(--muted);margin:0 0 6px}
+.p-call-link{display:inline-block;font-size:14px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.p-call-link:hover{color:var(--navy)}
+.price-note{font-size:16px;color:var(--text);font-style:italic;font-weight:600;margin-bottom:26px}
+.inc-list{list-style:none;margin:0}
+.inc-list li{display:flex;align-items:flex-start;gap:13px;margin-bottom:11px;font-size:16px;color:var(--text);line-height:1.5}
+
+.inc-list li::before{content:'✓';color:var(--coral);font-weight:700;flex-shrink:0;margin-top:2px}
+/* Bonus lines were indistinguishable from the deliverables they sat among,
+   which is the opposite of what a bonus is for. Tinted row, coral rule, star
+   instead of a tick, and the word BONUS as a badge. */
+.inc-list .inc-bonus{background:var(--hi);border-left:3px solid var(--coral);border-radius:var(--r);padding:11px 14px;margin-bottom:8px;align-items:flex-start}
+.inc-list .inc-bonus::before{content:'★';color:var(--coral);margin-top:1px}
+.inc-bonus-tag{display:inline-block;background:var(--coral);color:var(--white);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;padding:3px 7px;margin-right:8px;vertical-align:2px}
+.inc-bonus strong{color:var(--navy);font-weight:700}
+.beta-terms{background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:16px 22px;margin-bottom:26px;font-size:16px;color:var(--muted);line-height:1.62}
+.beta-terms strong{color:var(--text);font-weight:600}
+.cta-pair{display:flex;flex-direction:column;gap:10px}
+.cta-or{text-align:center;font-size:14px;color:var(--muted)}
+.cta-sub{text-align:center;font-size:14px;color:var(--text);margin-top:10px;font-style:italic;font-weight:600}
+
+/* after you buy - a linear flow rather than cards or columns. Dots sit on a
+   rule that runs between the first and last marker, so the four steps read
+   as one pipeline. Turns vertical, with the rule on the left, on narrow
+   screens. */
+#onboard{background:var(--white);padding:84px 0}
+@media(max-width:640px){#onboard{padding:60px 0}}
+#onboard .wrap{text-align:center}
+#onboard h2{font-size:clamp(1.75rem,4vw,2.6rem);margin-bottom:10px}
+/* Two-part intro so the lead line carries more weight than the detail. */
+.ob-intro{max-width:660px;margin:0 auto 54px}
+@media(max-width:640px){.ob-intro{margin-bottom:40px}}
+p.ob-lead{font-size:19.5px;font-weight:600;color:var(--navy);line-height:1.5;margin:0 0 14px}
+p.ob-sub{font-size:17.5px;color:var(--text);line-height:1.65;margin:0}
+@media(max-width:640px){p.ob-lead{font-size:18px}p.ob-sub{font-size:16.5px}}
+
+/* Each step carries several paragraphs now, so the timeline runs vertically
+   at every width rather than only on small screens. */
+.flow{display:grid;grid-template-columns:1fr;gap:38px;position:relative;max-width:700px;margin:0 auto;text-align:left}
+.flow::before{content:'';position:absolute;top:12px;bottom:12px;left:11px;width:2px;background:linear-gradient(180deg,var(--coral),var(--navy));opacity:.3}
+.flow-step{position:relative;display:flex;align-items:flex-start;gap:20px}
+.flow-body{display:flex;flex-direction:column;flex:1;padding-top:1px}
+.flow-dot{width:24px;height:24px;border-radius:50%;background:var(--white);border:3px solid var(--coral);position:relative;z-index:1;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.flow-dot::after{content:'';width:9px;height:9px;border-radius:50%;background:var(--coral)}
+.flow-step-us .flow-dot{border-color:var(--navy)}
+.flow-step-us .flow-dot::after{background:var(--navy)}
+.flow-step h3{font-size:1.3rem;color:var(--navy);margin-bottom:12px;line-height:1.28}
+.flow-step p{font-size:16px;color:var(--text);line-height:1.68;margin:0 0 13px}
+.flow-step p:last-of-type{margin-bottom:0}
+/* Several of these are full sentences rather than a duration, so the clock
+   marks them as a note without boxing them in. It takes coral on the client's
+   steps and navy on ours, matching the .flow-dot it sits under. */
+.flow-when{margin-top:16px;display:flex;gap:9px;font-size:14.5px;font-weight:700;color:var(--navy);line-height:1.55}
+.flow-when-icon{flex:none;width:16px;height:16px;margin-top:2px;fill:none;stroke:var(--coral);stroke-width:2}
+.flow-step-us .flow-when-icon{stroke:var(--navy)}
+@media(max-width:640px){.flow{gap:30px}.flow-step{gap:15px}.flow-step h3{font-size:1.18rem}.flow-step p{font-size:15.5px}}
+.ob-quote{margin:52px auto 0;max-width:620px;text-align:center}
+.ob-quote p{font-family:var(--head);font-style:italic;font-weight:600;font-size:1.3rem;line-height:1.45;color:var(--navy);margin:0}
+.ob-quote p::before{content:'\201C'}
+.ob-quote p::after{content:'\201D'}
+.ob-quote cite{display:block;margin-top:10px;font-style:normal;font-size:13.5px;color:var(--muted)}
+/* Holly's quote sits inside .flow under step 1, so it is indented to line up
+   with .flow-body (24px dot + 20px gap) and lets the timeline rule show. */
+.ob-needs{max-width:700px;margin:56px auto 0;padding:28px 32px;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);text-align:left}
+.ob-needs h3{font-size:1.2rem;color:var(--navy);margin:0 0 16px}
+.ob-needs ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ob-needs li{position:relative;padding-left:22px;font-size:15.5px;line-height:1.6;color:var(--text)}
+.ob-needs li::before{content:'';position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--coral)}
+.ob-needs strong{color:var(--navy);font-weight:700}
+@media(max-width:640px){.ob-needs{margin-top:44px;padding:22px 20px}.ob-needs li{font-size:15px}}
+.ob-quote-inline{margin:0 0 0 44px;max-width:none;text-align:left;padding:20px 24px;background:var(--cream);border-left:3px solid var(--coral);border-radius:0 var(--r) var(--r) 0}
+.ob-quote-inline p{font-size:1.12rem}
+.ob-quote-inline cite{margin-top:8px}
+@media(max-width:640px){.ob-quote-inline{margin-left:39px;padding:16px 18px}.ob-quote-inline p{font-size:1.02rem}}
+
+/* Standalone pull quote, reused under the bonuses and the comparison panel. */
+.pull-quote{max-width:660px;margin:36px auto 0;padding:26px 30px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);text-align:center}
+.pull-quote blockquote{margin:0;font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.05rem,2.1vw,1.22rem);line-height:1.5;color:var(--navy)}
+.pull-quote blockquote strong{font-weight:700}
+.pull-quote figcaption{margin-top:14px;font-size:13px;line-height:1.45;color:var(--muted)}
+.pull-quote-name{display:block;font-size:14px;font-weight:700;color:var(--navy)}
+.pull-quote-role{display:block}
+@media(max-width:640px){.pull-quote{padding:20px;margin-top:28px}}
+
+/* testimonials */
+/* Testimonials are distributed through the page rather than pooled in one
+   section, so each gets its own band and no heading. The band tone is picked
+   to differ from the sections either side - that separation is the whole job.
+   ATTRIBUTION: both forms came back "Respondent: Anonymous", so these are
+   first names only. Swap in full names once each client confirms in writing. */
+.t-band{padding:64px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+@media(max-width:640px){.t-band{padding:48px 0}}
+.t-band-white{background:var(--white)}
+.t-band-soft{background:var(--soft)}
+.t-band .t-card{max-width:920px;margin:0 auto}
+/* Stacked and wide, so each testimonial gets a full line rather than a
+   narrow column: person on the left, their words on the right. */
+.t-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:34px 38px;box-shadow:var(--sh-sm);display:grid;grid-template-columns:140px 1fr;gap:34px;align-items:start}
+@media(max-width:760px){.t-card{grid-template-columns:1fr;gap:22px;padding:28px 26px}}
+.t-person{display:flex;flex-direction:column}
+@media(max-width:760px){.t-person{flex-direction:row;align-items:center;gap:16px}.t-meta{flex:1}}
+/* Square rather than round, and large enough to read as a portrait. Each
+   photo is scaled with its own origin because the two sitters are framed
+   differently - a shared value cropped one of them at the forehead. */
+.t-avatar{width:140px;height:140px;border-radius:var(--r);flex-shrink:0;overflow:hidden;display:block;background:var(--hi-md);margin-bottom:14px;border:1px solid var(--border)}
+@media(max-width:760px){.t-avatar{width:76px;height:76px;margin-bottom:0}}
+.t-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.t-avatar-nathalie img{transform:scale(1.5);transform-origin:46% 14%}
+.t-avatar-holly img{transform:scale(1.7);transform-origin:50% 22%}
+.t-name{font-weight:700;color:var(--navy);display:block;font-size:16px;margin-bottom:3px}
+.t-role{font-size:13.5px;color:var(--muted);line-height:1.5;display:block}
+.t-body{display:flex;flex-direction:column;gap:14px}
+.t-lead{font-size:20.5px;line-height:1.5;color:var(--navy);margin:0;font-family:var(--head);font-style:italic;font-weight:700}
+.t-lead::before{content:'\201C';color:var(--coral);font-size:2.1rem;line-height:0;vertical-align:-0.4em;margin-right:4px}
+.t-quote{font-size:15.5px;line-height:1.66;color:var(--text);margin:0}
+.t-quote strong{color:var(--navy);font-weight:700}
+
+/* faq */
+#faq{background:var(--white)}
+#faq h2{font-size:clamp(1.45rem,3vw,1.95rem);margin-bottom:32px;max-width:460px}
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
+@media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
+.faq-item{border:1px solid var(--border);border-radius:var(--r);background:var(--white);overflow:hidden;align-self:start}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 26px;cursor:pointer;font-family:var(--head);font-size:1.2rem;font-weight:700;color:var(--navy);list-style:none;user-select:none;transition:background .15s}
+.faq-q:hover{background:var(--soft)}
+.faq-q::after{content:'+';font-family:var(--body);font-size:22px;color:var(--coral);flex-shrink:0;transition:transform .25s;line-height:1}
+details[open] .faq-q::after{transform:rotate(45deg)}
+.faq-a{padding:0 26px 22px;padding-top:18px;font-size:16.5px;color:var(--text);line-height:1.7;border-top:1px solid var(--border)}
+.faq-a p{margin:0 0 14px}
+.faq-a p:last-child{margin-bottom:0}
+
+/* close */
+#close{background:var(--navy);text-align:center;padding:88px 0;position:relative;overflow:hidden}
+#close .wrap{position:relative;z-index:2}
+/* Background video. Hidden until it can actually play, so a missing or
+   undecodable file just leaves the flat navy section that was here before.
+   Scrim keeps the white copy legible over whatever the footage is doing. */
+.close-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0;transition:opacity .9s ease;pointer-events:none}
+.close-video.ready{opacity:1}
+.close-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(1,61,70,.80),rgba(2,82,93,.78))}
+@media(prefers-reduced-motion:reduce){.close-video{transition:none}}
+#close h2{font-size:clamp(1.75rem,4vw,2.6rem);max-width:560px;margin:0 auto 14px;color:var(--white)}
+#close .sub{font-size:17px;color:rgba(255,255,255,.85);max-width:480px;margin:0 auto 32px}
+.close-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.close-note{margin-top:18px;font-size:14px;color:rgba(255,255,255,.9);font-style:italic;font-weight:600}
+#close .close-note a{color:var(--lime)}
+#close .nb{color:var(--lime)}
+#close .ul{text-decoration-color:var(--lime)}
+#close .btn-s{background:transparent;color:var(--white);border-color:rgba(255,255,255,.45)}
+#close .btn-s:hover{background:rgba(255,255,255,.1);border-color:var(--white)}
+
+footer{background:var(--navy-dk);padding:28px 0;text-align:center;font-size:14px;color:rgba(255,255,255,.7)}
+footer a{color:rgba(255,255,255,.7)}
+footer a:hover{color:var(--white)}
+
+/* funnel flow */
+#funnel-flow{background:var(--soft);padding:48px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.funnel-label{display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:20px;text-align:center}
+.how-intro{max-width:740px;margin-bottom:44px}
+@media(max-width:620px){.how-intro{margin-bottom:32px}}
+.how-intro p{font-size:17.5px;line-height:1.7;color:var(--text);margin-bottom:17px}
+.how-intro p:last-child{margin-bottom:0}
+.how-lead{font-size:19px!important;font-weight:600;color:var(--navy)!important}
+.how-close{font-weight:600;color:var(--navy)!important}
+@media(max-width:620px){.how-intro p{font-size:16.5px}.how-lead{font-size:17.5px!important}}
+
+/* ── WHAT WE BUILD SLIDER ──────────────────────────────────────────
+   A native scroll-snap track: one row of cards that overflows, snapping
+   card by card. grid-auto-columns sets how many fit, so "3 at a time" is
+   one number per breakpoint. Vertical padding keeps the card shadows from
+   being clipped by the scroll container. */
+/* Running total under the slider. The figures are the sum of the five
+   .funnel-cost rows above (38-59 hrs, $6,050+), so keep them in step. */
+.funnel-tally{max-width:700px;margin:26px auto 0;padding:22px 28px;background:var(--white);border:1px solid var(--border);border-radius:var(--r);text-align:center;font-size:17px;line-height:1.65;color:var(--text)}
+.funnel-tally strong{font-family:var(--head);font-size:1.22rem;font-weight:700;color:var(--navy);white-space:nowrap}
+@media(max-width:640px){.funnel-tally{padding:18px 20px;font-size:16px}}
+.funnel-slider{position:relative}
+.funnel-track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 40px)/3);gap:20px;align-items:stretch;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;padding:8px 2px 18px;scrollbar-width:none;-ms-overflow-style:none}
+.funnel-track::-webkit-scrollbar{display:none}
+.funnel-track:focus-visible{outline:3px solid var(--coral);outline-offset:4px;border-radius:var(--r)}
+.funnel-step{scroll-snap-align:start}
+@media(max-width:940px){.funnel-track{grid-auto-columns:calc((100% - 20px)/2)}}
+@media(max-width:620px){.funnel-track{grid-auto-columns:86%;gap:16px;align-items:start}}
+/* Nav is injected by JS, so nothing here shows up without it. */
+.funnel-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:6px}
+.funnel-arrow{width:42px;height:42px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--white);color:var(--navy);border:1px solid rgba(2,82,93,.3);border-radius:50%;cursor:pointer;font-size:17px;line-height:1;transition:background .15s,border-color .15s,transform .12s,opacity .15s}
+.funnel-arrow:hover:not(:disabled){background:var(--soft);border-color:var(--navy);transform:translateY(-1px)}
+.funnel-arrow:disabled{opacity:.3;cursor:default}
+.funnel-arrow:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.funnel-dots{display:flex;align-items:center;gap:9px}
+.funnel-dot{width:9px;height:9px;padding:0;border:none;border-radius:50%;background:rgba(2,82,93,.25);cursor:pointer;transition:background .15s,transform .15s}
+.funnel-dot:hover{background:rgba(2,82,93,.45)}
+.funnel-dot[aria-current="true"]{background:var(--coral);transform:scale(1.25)}
+.funnel-dot:focus-visible{outline:2px solid var(--coral);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.funnel-arrow,.funnel-dot{transition:none}}
+.funnel-step{display:flex;flex-direction:column;text-align:left;background:var(--white);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 4px 18px rgba(2,82,93,.10);padding:26px 26px 22px}
+@media(max-width:620px){.funnel-step{padding:24px 22px 20px}}
+.funnel-num{display:block;font-family:var(--head);font-size:2rem;font-weight:700;color:var(--coral);line-height:1;margin-bottom:16px}
+.funnel-mock{margin-bottom:20px;height:215px;display:flex;align-items:center;justify-content:center;background:var(--cream);border-radius:var(--r);overflow:hidden;padding:10px}
+.funnel-mock svg{display:block;width:100%;height:auto;max-height:100%}
+/* Mockups ship at aspect ratios from 0.56 to 1.17, so contain them in a
+   fixed-height frame - otherwise the card grid goes ragged. */
+.funnel-mock img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+@media(max-width:620px){.funnel-mock{height:220px}}
+.funnel-kicker{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);margin-bottom:6px}
+.funnel-step-title{font-family:var(--head);font-size:1.45rem;font-weight:600;color:var(--navy);margin-bottom:8px;line-height:1.2}
+.funnel-step-desc{font-size:15.5px;color:var(--muted);line-height:1.62;margin-bottom:12px}
+/* Carries the flow narrative the old #included list used to hold: what this
+   piece changes for the reader, not just what it is. */
+.funnel-why{font-size:14px;color:var(--navy);font-weight:700;line-height:1.5;margin-bottom:20px;display:flex;align-items:flex-start;gap:7px}
+.funnel-why::before{content:'\21B3';flex-shrink:0}
+.funnel-cost{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:auto 0 0;padding-top:16px;border-top:1px solid var(--border)}
+.funnel-cost dt{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--coral);margin-bottom:5px}
+.funnel-cost dd{margin:0;font-family:var(--head);font-size:1.15rem;font-weight:600;color:var(--navy);line-height:1.25}
+
+/* ── BONUSES AS A LIMITED-TIME STACK ───────────────────────────────
+   These are only worth anything if the page treats them as expiring, so
+   the section gets its own header, a live countdown, a stacked value, and
+   a CTA of its own rather than three quiet tiles under the funnel.
+
+   THE DEADLINE comes from events.json (see build.js), which fills in both
+   data-deadline on <body> and the written dates in this section's copy. */
+#included{padding-top:48px;padding-bottom:92px}
+@media(max-width:640px){#how{padding-bottom:28px}#included{padding-top:36px;padding-bottom:64px}}
+.bonus-head{max-width:760px;margin:0 auto 30px;text-align:center}
+.bonus-eyebrow{display:inline-flex;align-items:center;gap:9px;background:var(--coral);color:var(--white);font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;border-radius:999px;padding:8px 18px;margin-bottom:20px}
+.bonus-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--white);animation:pulse 2s infinite}
+@media(prefers-reduced-motion:reduce){.bonus-eyebrow-dot{animation:none}}
+
+.bonus-timer{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:36px}
+.bonus-timer-label{font-size:13.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--navy)}
+.bonus-clock{display:flex;align-items:flex-start;gap:10px}
+.bonus-unit{display:flex;flex-direction:column;align-items:center;min-width:72px;padding:12px 10px 11px;background:var(--navy);border-radius:var(--r);line-height:1}
+.bonus-num{font-family:var(--head);font-size:2rem;font-weight:600;color:var(--lime);font-variant-numeric:tabular-nums}
+.bonus-lbl{margin-top:7px;font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+@media(max-width:560px){.bonus-clock{gap:7px}.bonus-unit{min-width:60px;padding:10px 7px 9px}.bonus-num{font-size:1.6rem}}
+
+.bonuses{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+@media(max-width:980px){.bonuses{grid-template-columns:1fr;max-width:640px;margin:0 auto}}
+/* Padding moves to .bonus-body so the screenshot panel can bleed to the card
+   edges without negative-margin maths at every breakpoint. */
+.bonus-item{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--hi-md);border-top:3px solid var(--coral);border-radius:var(--r);padding:0;overflow:hidden;text-align:left;box-shadow:0 4px 18px rgba(2,82,93,.08)}
+/* The shots fill the panel width and bleed off the bottom, clipped by the
+   card - they read as real screenshots poking into the card rather than
+   thumbnails floating in a box. Top-anchored, because the top of each shot
+   is the part that says what it is. All three run 0.90-1.14 in aspect, so
+   the same treatment holds for each. */
+.bonus-shot{height:218px;flex-shrink:0;overflow:hidden;padding:14px 14px 0;background:var(--hi);border-bottom:1px solid var(--hi-md)}
+.bonus-shot img{display:block;width:100%;height:auto;border-radius:3px 3px 0 0}
+.bonus-body{display:flex;flex-direction:column;flex:1;padding:26px 28px 28px}
+@media(max-width:640px){.bonus-shot{height:215px}.bonus-body{padding:24px 22px 24px}}
+/* One dominant idea per card: the price, struck out. The old cards stacked a
+   tag, an emoji, a title, a value chip and a long paragraph, so nothing led
+   and three of them together read as noise rather than as an offer. */
+.bonus-price{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.bonus-was{position:relative;font-family:var(--head);font-size:2.9rem;font-weight:700;color:var(--muted);line-height:1}
+.bonus-was::after{content:'';position:absolute;left:-3px;right:-3px;top:47%;height:3px;border-radius:2px;background:var(--coral)}
+.bonus-now{font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--coral)}
+.bonus-item h3{font-family:var(--head);font-size:1.35rem;font-weight:600;color:var(--navy);margin-bottom:10px;line-height:1.22}
+.bonus-item p{font-size:15.5px;color:var(--text);line-height:1.6;margin:0}
+@media(max-width:640px){.bonus-was{font-size:2.5rem}}
+
+.bonus-total{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;max-width:620px;margin:32px auto 0;padding:24px 28px;background:var(--navy);border-radius:var(--r-lg)}
+.bonus-total-label{font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.bonus-total-num{font-family:var(--head);font-size:clamp(2.4rem,6vw,3.2rem);font-weight:600;color:var(--lime);line-height:1.05}
+.bonus-total-note{font-size:14.5px;line-height:1.55;color:rgba(255,255,255,.88);font-weight:600;margin-top:6px}
+
+.bonus-cta{text-align:center;margin-top:34px}
+.bonus-cta-line{font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.2rem,2.5vw,1.5rem);color:var(--navy);margin:0 0 20px;line-height:1.4}
+
+/* no bold inside any card */
+.step-card strong, .step-card b,
+.step-card h3,
+.ba-block strong, .ba-block b,
+.p-box strong, .p-box b,
+.faq-item strong, .faq-item b {
+  font-weight: 400;
+}
+.step-card h3 { font-weight: 400; }
+
+/* ── EMPHASIS STYLES ────────────────────────────────────────── */
+/* Underline: warm, hand-drawn feel using navy */
+.ul{
+  text-decoration:underline;
+  text-decoration-color:rgba(2,82,93,0.45);
+  text-decoration-thickness:2px;
+  text-underline-offset:3px;
+}
+/* Bold in navy */
+.nb{
+  font-weight:700;
+  color:var(--navy);
+}
+/* Highlight: light blue wash behind text */
+.hl{
+  background:var(--hi-md);
+  border-radius:3px;
+  padding:1px 5px;
+  margin:0 -2px;
+}
+/* Bold + slightly larger, used for key claims in body copy */
+.key{
+  font-weight:600;
+  color:var(--text);
+}
+
+/* comparison panel - sits above pricing, collapsed by default */
+.comparison{max-width:680px;margin:0 auto 48px;padding:0 8px}
+.comparison-toggle{background:var(--white);border:1.5px dashed rgba(2,82,93,0.4);cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 24px;font-family:var(--body);font-size:15px;font-weight:500;color:var(--navy);letter-spacing:.01em;transition:background .15s,border-color .15s,transform .12s;border-radius:var(--r)}
+.comparison-toggle u{text-decoration:underline;text-decoration-color:rgba(2,82,93,0.5);text-underline-offset:3px}
+.comparison-toggle:hover{background:var(--hi);border-color:var(--navy);transform:translateY(-1px)}
+.comparison-toggle .c-toggle-icon{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--navy);color:var(--white);border:none;font-size:15px;font-weight:600;transition:transform .25s,background .15s;line-height:1;flex-shrink:0}
+details[open] .comparison-toggle{background:var(--hi);border-style:solid;border-color:var(--navy)}
+details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
+.comparison-toggle::-webkit-details-marker{display:none}
+.comparison-toggle{list-style:none}
+/* #pricing is centred, which was centring every label in here. The list is
+   a two-column ledger, so it reads left. */
+.comparison-list{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:28px 32px;box-shadow:var(--sh-sm);margin-top:14px;text-align:left}
+/* See the LINING FIGURES rule near the bottom of this sheet. */
+@media(max-width:640px){.comparison-list{padding:22px 24px}}
+.comparison-intro{font-size:14px;color:var(--text);font-style:italic;font-weight:600;text-align:center;margin-bottom:18px;line-height:1.55}
+.comparison-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px dashed var(--border);font-size:16px}
+.comparison-row:last-of-type{border-bottom:none}
+.comparison-row .c-label{color:var(--text);flex:1}
+.comparison-row .c-price{color:var(--text);font-weight:600;white-space:nowrap;font-family:var(--head);font-size:17px}
+.comparison-sub{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0 12px;margin-top:4px;border-top:1px solid var(--border);border-bottom:1px dashed var(--border);font-size:16px}
+.comparison-sub .c-label{color:var(--navy);font-weight:600}
+.comparison-sub .c-price{color:var(--navy);font-family:var(--head);font-size:1.15rem;font-weight:700;white-space:nowrap}
+.comparison-total{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0 6px;margin-top:6px;border-top:1px solid var(--border);font-size:16px}
+.comparison-total .c-label{color:var(--text);font-style:italic;font-weight:600}
+.comparison-total .c-price{color:var(--text);font-family:var(--head);font-size:1.25rem;font-weight:700;white-space:nowrap}
+.comparison-ours{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 18px;margin-top:14px;background:var(--hi);border-radius:var(--r);border-left:3px solid var(--coral);font-size:16px}
+.comparison-ours .c-label{color:var(--text);font-weight:600}
+.comparison-ours .c-label .nb{color:var(--navy)}
+.comparison-ours .c-price{color:var(--navy);font-family:var(--head);font-size:1.4rem;font-weight:700;white-space:nowrap}
+
+/* case study section */
+#case-study{background:var(--white);padding:80px 0}
+@media(max-width:640px){#case-study{padding:52px 0}}
+.cs-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;max-width:1140px;margin:0 auto}
+@media(max-width:900px){.cs-grid{grid-template-columns:1fr;gap:36px}}
+.cs-image{position:relative}
+.cs-image img{width:100%;height:auto;display:block;border-radius:var(--r)}
+.cs-content .slabel{margin-bottom:16px}
+
+.cs-content h2{font-size:clamp(1.4rem,2.8vw,1.85rem);margin-bottom:20px;line-height:1.25}
+.cs-stat{background:var(--hi-md);border-left:3px solid var(--coral);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin-bottom:22px}
+.cs-stat-h{font-size:16px;color:var(--text);line-height:1.55;margin:0 0 8px}
+.cs-stat-h strong{color:var(--navy);font-weight:700}
+.cs-stat-sub{font-size:14px;color:var(--muted);line-height:1.55;margin:0}
+.cs-stat-sub strong{color:var(--navy);font-weight:700}
+.cs-intro{font-size:16px;color:var(--text);line-height:1.65;margin-bottom:22px}
+.cs-quote{font-family:var(--head);font-size:1.15rem;font-weight:600;line-height:1.55;color:var(--text);font-style:italic;margin-bottom:20px;position:relative;padding-left:18px}
+.cs-quote::before{content:'"';position:absolute;left:-2px;top:-18px;font-family:var(--head);font-size:3rem;color:var(--navy);opacity:.18;line-height:1}
+.cs-attrib{display:flex;align-items:center;gap:12px;margin-top:18px}
+.cs-attrib-name{font-weight:700;color:var(--navy);font-size:16px}
+.cs-attrib-role{font-size:14px;color:var(--muted)}
+.cs-meta{display:flex;gap:32px;margin-top:24px;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap}
+.cs-meta-item{font-size:13px;color:var(--muted);line-height:1.5;flex:1;min-width:140px}
+.cs-meta-item strong{display:block;font-family:var(--head);font-size:1.25rem;color:var(--navy);font-weight:600;margin-bottom:4px}
+
+/* floating deliverable pills on case study image */
+.cs-pills{position:absolute;inset:0;pointer-events:none;z-index:2}
+.cs-fp{position:absolute;display:inline-flex;align-items:center;gap:6px;background:var(--white);color:var(--navy);font-size:12px;font-weight:700;letter-spacing:.06em;padding:7px 14px;border-radius:999px;box-shadow:0 4px 18px rgba(0,0,0,0.14);white-space:nowrap;animation:fpFloat 4s ease-in-out infinite}
+.cs-fp .fp-check{width:18px;height:18px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--white);font-size:10px;line-height:1}
+.cs-fp:nth-child(1){top:8%;left:-6%;animation-delay:0s}
+.cs-fp:nth-child(2){top:26%;right:-8%;animation-delay:.6s}
+.cs-fp:nth-child(3){top:50%;left:-10%;animation-delay:1.2s}
+.cs-fp:nth-child(4){top:72%;right:-6%;animation-delay:1.8s}
+.cs-fp:nth-child(5){bottom:8%;left:4%;animation-delay:2.4s}
+@keyframes fpFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@media(max-width:900px){.cs-fp:nth-child(1){top:4%;left:4%}.cs-fp:nth-child(2){top:4%;right:4%;left:auto}.cs-fp:nth-child(3){top:auto;bottom:36%;left:4%}.cs-fp:nth-child(4){top:auto;bottom:18%;right:4%;left:auto}.cs-fp:nth-child(5){bottom:4%;left:4%}}
+
+/* ── RESULTS ───────────────────────────────────────────────────────
+   Nathalie's build. Uses the .cs-* case-study component above wholesale, so
+   there is one case-study layout on the page and only the copy differs. */
+#results{background:var(--soft);padding:80px 0;border-top:1px solid var(--border)}
+@media(max-width:640px){#results{padding:60px 0}}
+
+/* ── LINING FIGURES ────────────────────────────────────────────────
+   Cormorant Garamond defaults to OLD-STYLE figures: the 1 looks like a
+   small-cap I, and the 3/4/5/7/9 drop below the baseline. Lovely in running
+   prose, bad for anything you need to read as a number. Every numeric
+   display on the page uses Cormorant, so they all get lining, tabular
+   figures - lining so the digits are unambiguous, tabular so columns and
+   ticking countdowns do not jitter as the numbers change.
+
+   Add any new number display here too. */
+.comparison-list .c-price,
+.sb-num, .bonus-num, .bonus-total-num, .bonus-was,
+.cost-calc-out, .cost-calc-value,
+.price-was, .price-big,
+.funnel-cost dd{
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1;
+}
+</style>
+</head>
+<body data-deadline="2026-10-30T23:59:59-04:00">
+<script>
+/* Past the deadline? Switch to the full-price version before the page draws. */
+(function(){ var t = Date.parse(document.body.getAttribute('data-deadline'));
+  if(t && t <= Date.now()) document.body.classList.add('offer-closed'); })();
+</script>
+
+<!-- ══ STICKY OFFER BAR ════════════════════════════════════════════════
+     Offer + live countdown + button in one sticky band. This replaces the
+     old thin urgency strip and the white nav bar.
+
+     THE DEADLINE for the whole page is data-deadline on <body>. Every
+     countdown reads it. It, and every date written out in copy, is filled
+     in per event by build.js from events.json - do not type dates here.
+
+     WHITE VERSION: change class="offer-bar" to
+     class="offer-bar offer-bar-light".
+     WHEN THE DEADLINE PASSES: the countdown hides itself and the copy
+     falls back to the text in .sb-expired.
+════════════════════════════════════════════════════════════════════ -->
+<div class="offer-bar">
+  <div class="wrap">
+    <div class="offer-row">
+      <p class="sb-copy">
+        <span class="sb-dot"></span>
+        <span>
+          <span class="sb-live">Get your funnel plus <span class="sb-hl">$1,491 in bonuses and discounts</span> when you enroll by Friday, October 30 at 11:59 pm ET.</span>
+          <span class="sb-expired" hidden>This offer ended Friday, October 30. Want the $400 off and the bonuses? Join the next free training.</span>
+        </span>
+      </p>
+      <div class="sb-actions">
+      <div class="sb-count js-countdown" role="timer" aria-label="Time left to enroll">
+        <span class="sb-unit"><span class="sb-num" data-unit="d">--</span><span class="sb-lbl">Days</span></span>
+        <span class="sb-unit"><span class="sb-num" data-unit="h">--</span><span class="sb-lbl">Hrs</span></span>
+        <span class="sb-unit"><span class="sb-num" data-unit="m">--</span><span class="sb-lbl">Min</span></span>
+        <span class="sb-unit sb-unit-sec"><span class="sb-num" data-unit="s">--</span><span class="sb-lbl">Sec</span></span>
+      </div>
+      <a class="btn btn-p sb-cta" href="#pricing">Claim your spot</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ REPLAY BANNER ═══════════════════════════════════════════════════
+     Live. The title card below swaps for the embed on click.
+
+     TO SHOW IT FOR AN EVENT: set that event's "replayVideoId" in
+     events.json to the YouTube video ID. Left empty, the banner is hidden.
+
+     The old hero overview video, if you want it here in the meantime:
+     https://www.youtube.com/embed/p16fu7r4zuc?rel=0
+
+     Headline and subhead are placeholder copy - swap for real wording.
+════════════════════════════════════════════════════════════════════ -->
+<section class="replay-banner" id="replay" hidden>
+  <div class="wrap">
+    <div class="replay-stack">
+      <div class="replay-copy">
+        <span class="replay-eyebrow">Watch the replay</span>
+        <h2 class="replay-h">The List Building System That Brings in Clients While You're Off Social Media</h2>
+        <p class="replay-sub">See how practitioners like you are growing audiences of future clients without endless posting, then scroll down for a special offer to have us build yours.</p>
+      </div>
+      <div class="replay-embed">
+        <div class="replay-frame">
+          <!-- The still is the branded title card, which repeats the headline now
+               sitting above the video. For a plain still of Whitney instead,
+               swap the src below for video-overlay.png and set
+               --play-x back to 50% on .replay-cover in the CSS. -->
+          <button class="replay-cover" id="replay-cover" type="button" data-video-src="" aria-label="Play the training replay">
+            <img class="replay-cover-img" src="../Funnel%20Webinar%20V1%20(1).png" width="1920" height="1080"
+                 alt="Free training: the list-building system that brings in clients while you're off social media" />
+            <span class="replay-play">
+              <svg viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <circle cx="38" cy="38" r="38" fill="#ffffff" fill-opacity="0.95"/>
+                <polygon points="31,23 31,53 55,38" fill="#02525d"/>
+              </svg>
+            </span>
+          </button>
+          <iframe id="replay-iframe" src="" title="The List Building System That Brings in Clients While You&rsquo;re Off Social Media" hidden loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-cols">
+      <div class="hero-inner">
+        <div class="pill fi">For Health &amp; Nutrition Practitioners</div>
+        <h1 class="hero-h1 fi d1">
+          We build your funnel. You get <em>new leads every day</em> without the social media burnout.
+        </h1>
+        <p class="hero-sub fi d2">
+          A sustainable marketing system that puts you in front of new people and grows your audience every day &ndash; <strong>built for you, in your voice</strong>, by a team who gets the health and nutrition world.
+        </p>
+        <div class="hero-ctas fi d3">
+          <a class="btn btn-p" href="#pricing">Book Your Funnel</a>
+        </div>
+        <p class="hero-note fi d4">You tell us about your business, we handle the rest.</p>
+      </div>
+      <div class="hero-photo-col fi d2">
+        <!-- TO SWAP THE PHOTO: drop the new file in and update the src + alt below.
+             The frame is 3:2 landscape; the photo is cover-cropped to fill it. -->
+        <div class="hero-photo-wrap">
+          <img class="hero-photo" src="../new-hero.jpg" width="5760" height="3840" fetchpriority="high"
+               alt="A practitioner at her desk taking notes beside a laptop" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- STRIP -->
+<!-- WHO FOR – label + scrolling marquee -->
+<div id="strip">
+  <div class="strip-label">This is for you if you...</div>
+  <div class="marquee-bar">
+    <div class="marquee" aria-label="Who this offer is for">
+      <div class="marquee-track">
+        <span class="marquee-item">You want a <span class="accent">system</span> but don't have the <span class="accent">time to build it</span></span>
+        <span class="marquee-item">You're <span class="accent">done waiting</span> for Instagram to bring you clients</span>
+        <span class="marquee-item">You want leads who <span class="accent">already trust you</span> before the call</span>
+        <!-- duplicated set for seamless loop -->
+        <span class="marquee-item">You want a <span class="accent">system</span> but don't have the <span class="accent">time to build it</span></span>
+        <span class="marquee-item" aria-hidden="true">You're <span class="accent">done waiting</span> for Instagram to bring you clients</span>
+        <span class="marquee-item" aria-hidden="true">You want leads who <span class="accent">already trust you</span> before the call</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+
+    <!-- Contained content: 780px max-width -->
+    <div class="prob-wrap">
+
+      <!-- Intro -->
+      <div class="prob-intro fi">
+        <span class="slabel">Sound familiar?</span>
+        <h2>You know you need a funnel. <span class="accent">You've just never actually finished one.</span></h2>
+      </div>
+
+      <!-- Panel 1: Checkmark card -->
+      <div class="prob-card fi d1">
+        <ul class="prob-check-list">
+          <li>
+            <span class="prob-check-icon">✓</span>
+            <span>You <span class="hl">started building a funnel once</span>. Something broke, you got stuck, and the draft has been sitting untouched ever since.
+              <em>You keep meaning to come back to it.</em>
+            </span>
+          </li>
+          <li>
+            <span class="prob-check-icon">✓</span>
+            <span>You've been <span class="hl">posting on Instagram for a year+</span> and clients still aren't coming in consistently. The algorithm changes weekly. The same 5 people see your posts. You're tired.</span>
+          </li>
+          <li>
+            <span class="prob-check-icon">✓</span>
+            <span>You're already wearing <span class="hl">every hat in your practice</span>. Clinician, scheduler, biller, salesperson. Adding "build and maintain a marketing system" on top of that is laughable.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel 2: Truth bomb (attention vs. trust) -->
+      <div class="prob-truth-panel fi d1">
+        <p class="prob-truth-intro">Here's what nobody says out loud:</p>
+        <h3 class="prob-truth-big">
+          <span class="l"><span class="hl-yellow">Social media is built for attention.</span></span>
+          <span class="l accent">Not trust.</span>
+        </h3>
+        <p class="prob-truth-after">
+          But nutrition and health services are <span class="nb">high-trust purchases</span>. Nobody hires a dietitian, therapist, or functional practitioner from a single Reel.
+        </p>
+        <p class="prob-truth-after" style="margin-top:16px">
+          They commit after spending time in your world: reading your emails, learning from your content, and <span class="ul">deciding they trust you</span>.
+        </p>
+        <p class="prob-truth-after" style="margin-top:20px">
+          That's exactly what a <span class="nb">list-building funnel</span> does. And it <span class="ul">consistently outperforms</span> relying on social media alone for practices like yours.
+        </p>
+        <p class="prob-truth-after" style="margin-top:16px">
+          And when we say leads, we mean the people on that list. They found you, raised their hand for something you made, and let you into their inbox &ndash; which is why every number on this page is counted in subscribers.
+        </p>
+      </div>
+
+      <!-- Panel 3: Calculator -->
+      <div class="cost-calc fi d2">
+        <div class="cost-calc-head">
+          <h3 class="cost-calc-title">So what's an unfinished funnel <span class="accent">actually costing you?</span></h3>
+          <p class="cost-calc-sub">You don't need to go viral. You just need a system that consistently turns interested people into booked clients.</p>
+        </div>
+
+        <div class="cost-calc-inputs">
+          <div class="cost-calc-row">
+            <label for="calc-subs">New subscribers per month</label>
+            <input type="range" id="calc-subs" min="25" max="500" value="100" step="25" />
+            <span class="cost-calc-out" id="calc-subs-out">100</span>
+          </div>
+
+          <div class="cost-calc-row">
+            <label for="calc-conv">Conversion rate to client</label>
+            <input type="range" id="calc-conv" min="1" max="10" value="2" step="0.5" />
+            <span class="cost-calc-out" id="calc-conv-out">2%</span>
+          </div>
+
+          <div class="cost-calc-row">
+            <label for="calc-value">Average client value</label>
+            <input type="range" id="calc-value" min="200" max="5000" value="1200" step="100" />
+            <span class="cost-calc-out" id="calc-value-out">$1,200</span>
+          </div>
+        </div>
+
+        <div class="cost-calc-results">
+          <div class="cost-calc-result">
+            <span class="cost-calc-label">Potential Revenue each month</span>
+            <span class="cost-calc-value" id="calc-monthly">$2,400</span>
+          </div>
+          <div class="cost-calc-result cost-calc-result-accent">
+            <span class="cost-calc-label">Potential Revenue each year</span>
+            <span class="cost-calc-value" id="calc-annual">$28,800</span>
+          </div>
+        </div>
+
+        <p class="cost-calc-caption" id="calc-caption">That's 24 clients a year &ndash; enough to pay off the car, or clear the credit line.</p>
+      </div>
+
+      <!-- Short proof point right under the numbers. -->
+      <figure class="calc-proof fi d3">
+        <blockquote>
+          &ldquo;I now have <strong>over 2K subscribers</strong>&hellip; I went from not having a clue how to get subscribers to a clear system and strategy on gaining subscribers, keeping them, and generating leads.&rdquo;
+        </blockquote>
+        <figcaption><span class="calc-proof-name">Jessica</span><span class="calc-proof-role">Registered Dietitian Nutritionist, The Eat Well Studio</span></figcaption>
+      </figure>
+
+    </div><!-- /.prob-wrap -->
+
+  </div>
+</section>
+
+
+<!-- CAPACITY – closes the problem section. The point is deliberately NOT
+     that she couldn't build this: it's that she hasn't got the hours. -->
+<section id="capacity">
+  <div class="wrap">
+    <div class="prob-close-inner fi">
+      <p class="prob-close-eyebrow">So why don't you have one yet?</p>
+      <h3 class="prob-close-h">
+        Because this isn't a willpower problem.<br/>
+        <span class="accent-light">It's a capacity problem.</span>
+      </h3>
+      <p class="prob-close-body">
+        A funnel that converts needs a lead magnet, copy that sounds like you, tech that doesn't break, and a sequence that doesn't fizzle. You could figure out every piece of that. The thing you don't have is <span class="ul-light">when</span>.
+      </p>
+      <p class="prob-close-body" style="margin-top:14px">
+        Between clients, admin, and everything else your practice asks of you, the funnel is always the thing that waits. So we build it for you: done-for-you funnels that sound like you, work reliably, and consistently bring in qualified leads.
+      </p>
+      <p class="prob-close-body" style="margin-top:14px; font-weight:600">
+        You keep your hours for your clients, and <em>hand this off to <u>us</u></em>.
+      </p>
+
+      <div class="section-cta fi d1">
+        <p class="section-cta-line">Ready to see what we'd build for you?</p>
+        <a class="btn btn-light" href="#pricing">Get started</a>
+        <p class="section-cta-sub">Or keep reading. We'll walk you through exactly what's included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW IT WORKS / FUNNEL FLOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="fi">
+      <h2>Here's the funnel we'll <span class="ul">build for you</span>.</h2>
+      <div class="how-intro">
+        <p class="how-lead">You'll be part of the process, because this should still sound and feel like your business.</p>
+        <p>We'll start by getting clear on your audience, your offer, your voice, and what you want this funnel to do. You'll give us your input and feedback along the way. Then our team takes that and does the heavy lifting.</p>
+        <p>We'll create the lead magnet, write the ads, build the pages, write the emails, and connect everything behind the scenes.</p>
+        <p class="how-close">Your voice and expertise are all over it. You just don't have to be the one figuring out how to build it.</p>
+      </div>
+    </div>
+
+    <!-- ══ WHAT WE BUILD - SLIDER ═════════════════════════
+         Five cards, three visible at a time on desktop (two on tablet, one
+         on phone). The track is a native scroll-snap carousel, so swipe and
+         trackpad scroll work on their own; the arrows and dots are added by
+         JS and only show up if it runs.
+
+         TO REORDER OR ADD A CARD: move or add the .funnel-step markup and fix
+         the .funnel-num labels. The nav counts the cards at runtime.
+    ═════════════════════════════════════════════════ -->
+    <div class="funnel-slider fi d1">
+      <div class="funnel-track" id="funnel-track" role="list" tabindex="0"
+           aria-label="The five pieces we build - scroll or use the arrows">
+      <div class="funnel-step" role="listitem">
+        <span class="funnel-num">01</span>
+        <div class="funnel-mock"><img src="../lead-magnet_mockup.png" alt="A designed lead magnet PDF guide" loading="lazy" decoding="async" /></div>
+        <span class="funnel-kicker">Lead Magnet</span>
+        <div class="funnel-step-title">Client Magnet</div>
+        <div class="funnel-step-desc">A free, useful resource your ideal client actually wants. We improve an existing one, or create it from scratch from your expertise.</div>
+        <p class="funnel-why">Without something worth signing up for, you can't get leads.</p>
+        <dl class="funnel-cost"><div><dt>Time to DIY</dt><dd>12&ndash;20 hrs</dd></div><div><dt>Cost to outsource</dt><dd>$1,500+</dd></div></dl>
+      </div>
+      <div class="funnel-step" role="listitem">
+        <span class="funnel-num">02</span>
+        <div class="funnel-mock"><img src="../opt-in_mockup.png" alt="Opt-in landing page shown on a phone" loading="lazy" decoding="async" /></div>
+        <span class="funnel-kicker">Opt-In Page</span>
+        <div class="funnel-step-title">Conversion Page</div>
+        <div class="funnel-step-desc">A focused landing page with copy written for your audience, connected to your email platform so everything flows automatically.</div>
+        <p class="funnel-why">This is where strangers become leads.</p>
+        <dl class="funnel-cost"><div><dt>Time to DIY</dt><dd>4&ndash;6 hrs</dd></div><div><dt>Cost to outsource</dt><dd>$1,100+</dd></div></dl>
+      </div>
+      <div class="funnel-step" role="listitem">
+        <span class="funnel-num">03</span>
+        <div class="funnel-mock"><img src="../thank-you_mockup.png" alt="Thank you page confirming the guide is on its way" loading="lazy" decoding="async" /></div>
+        <span class="funnel-kicker">Thank You Page</span>
+        <div class="funnel-step-title">Welcome Mat</div>
+        <div class="funnel-step-desc">Confirms the resource is on its way and gives the new subscriber a clear next step.</div>
+        <p class="funnel-why">Keeps the momentum going right after someone signs up.</p>
+        <dl class="funnel-cost"><div><dt>Time to DIY</dt><dd>2&ndash;3 hrs</dd></div><div><dt>Cost to outsource</dt><dd>$350+</dd></div></dl>
+      </div>
+      <div class="funnel-step" role="listitem">
+        <span class="funnel-num">04</span>
+        <div class="funnel-mock"><img src="../delivery-sequence_mockup.png" alt="Lead magnet delivery email and the automated sequence behind it" loading="lazy" decoding="async" /></div>
+        <span class="funnel-kicker">Email Sequence</span>
+        <div class="funnel-step-title">Nurture Sequence</div>
+        <div class="funnel-step-desc">A delivery email the moment someone signs up, then a welcome sequence over two weeks (5 emails total) &ndash; introducing you, sharing your perspective, and warming subscribers to what you offer.</div>
+        <p class="funnel-why">Most people aren't ready to book right away. This keeps them engaged until they are.</p>
+        <dl class="funnel-cost"><div><dt>Time to DIY</dt><dd>12&ndash;18 hrs</dd></div><div><dt>Cost to outsource</dt><dd>$1,600+</dd></div></dl>
+      </div>
+      <div class="funnel-step" role="listitem">
+        <span class="funnel-num">05</span>
+        <div class="funnel-mock"><img src="../ads_mockup.png" alt="Facebook and Instagram ad mockups on phones" loading="lazy" decoding="async" /></div>
+        <span class="funnel-kicker">Ad Campaign</span>
+        <div class="funnel-step-title">Traffic Engine</div>
+        <div class="funnel-step-desc">Copy written, graphic designed, targeting set up, and the campaign launched. Runs at a small daily budget (e.g. $5/day) &ndash; you own the account and can pause anytime.</div>
+        <p class="funnel-why">Without traffic, a funnel just sits there. This is what makes it work every day.</p>
+        <dl class="funnel-cost"><div><dt>Time to DIY</dt><dd>8&ndash;12 hrs</dd></div><div><dt>Cost to outsource</dt><dd>$1,500+</dd></div></dl>
+      </div>
+      </div>
+    </div>
+
+    <p class="funnel-tally fi d2">All together, building a funnel like this could take <strong>35+ hours</strong> to DIY, or <strong>over $6K</strong> to hire out.</p>
+  </div>
+</section>
+
+
+<!-- INCLUDED (bonuses: sale-only, hidden after the deadline) -->
+<section id="included" class="sale-only">
+  <div class="wrap">
+
+    <div class="bonus-head fi">
+      <span class="bonus-eyebrow">
+        <span class="bonus-eyebrow-dot"></span>Only until Friday, October 30
+      </span>
+      <h2>Plus, these come with it.</h2>
+    </div>
+
+    <!-- Countdown inherits the deadline from <body data-deadline>. -->
+    <div class="bonus-timer fi d1">
+      <span class="bonus-timer-label">Bonuses expire in</span>
+      <div class="bonus-clock js-countdown" role="timer" aria-label="Time left to claim the bonuses">
+        <span class="bonus-unit"><span class="bonus-num" data-unit="d">--</span><span class="bonus-lbl">Days</span></span>
+        <span class="bonus-unit"><span class="bonus-num" data-unit="h">--</span><span class="bonus-lbl">Hrs</span></span>
+        <span class="bonus-unit"><span class="bonus-num" data-unit="m">--</span><span class="bonus-lbl">Min</span></span>
+        <span class="bonus-unit"><span class="bonus-num" data-unit="s">--</span><span class="bonus-lbl">Sec</span></span>
+      </div>
+    </div>
+
+    <div class="bonuses fi d2">
+      <div class="bonus-item">
+        <div class="bonus-shot">
+          <img src="../bonus-command-center.jpg" width="854" height="945" loading="lazy" decoding="async"
+               alt="A client&rsquo;s Funnel Command Center in Notion: the handoff page with every asset linked, the action items before going live, and video walkthroughs embedded" />
+        </div>
+        <div class="bonus-body">
+          <div class="bonus-price">
+            <span class="bonus-was">$397</span>
+            <span class="bonus-now">Yours free</span>
+          </div>
+          <h3>Your Funnel Command Center</h3>
+          <p>A Notion hub with every file we built and a video walkthrough of each piece, so none of it lives only in our heads.</p>
+        </div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-shot">
+          <img src="../bonus-ad-support.jpg" width="1373" height="1307" loading="lazy" decoding="async"
+               alt="Priscilla, our ads expert, beside a live campaign in Meta Ads Manager and the ad creative running in it" />
+        </div>
+        <div class="bonus-body">
+          <div class="bonus-price">
+            <span class="bonus-was">$197</span>
+            <span class="bonus-now">Yours free</span>
+          </div>
+          <h3>7 Days of Ad Support</h3>
+          <p>The week your ads go live is the week things go sideways. We&rsquo;re on email with you for all of it.</p>
+        </div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-shot">
+          <img src="../bonus-ads-course.jpg" width="1101" height="966" loading="lazy" decoding="async"
+               alt="The Ads Made Simple course: modules on strategy, creative and reading your results, plus the full video walkthrough" />
+        </div>
+        <div class="bonus-body">
+          <div class="bonus-price">
+            <span class="bonus-was">$497</span>
+            <span class="bonus-now">Yours free</span>
+          </div>
+          <h3>Ads Made Simple Course</h3>
+          <p>The full course on running your own ads, so you&rsquo;re never stuck paying someone to change a headline.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus-total fi d3">
+      <span class="bonus-total-label">Total bonus value</span>
+      <span class="bonus-total-num">$1,091</span>
+      <span class="bonus-total-note">Yours at no extra cost when you enroll by Friday, October 30 at 11:59 pm ET.</span>
+    </div>
+
+    <figure class="pull-quote fi d3">
+      <blockquote>
+        &ldquo;I didn&rsquo;t just walk away with one finished funnel. Because of what I learned throughout the process, <strong>I now have a strategy and a guide I can use when I create future funnels</strong>, which has given me so much more confidence moving forward.&rdquo;
+      </blockquote>
+      <figcaption><span class="pull-quote-name">Jessica</span><span class="pull-quote-role">Registered Dietitian Nutritionist, The Eat Well Studio</span></figcaption>
+    </figure>
+
+    <div class="bonus-cta fi d3">
+      <p class="bonus-cta-line">Yours when you enroll by Friday.</p>
+      <a class="btn btn-p" href="#pricing">Claim your spot</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CASE STUDY -->
+<section id="case-study">
+  <div class="wrap">
+    <div class="cs-grid fi">
+      <div class="cs-image">
+        <img src="../mockup.png" alt="Heather's done-for-you funnel: lead magnet, opt-in page, and welcome emails" />
+        <div class="cs-pills">
+          <span class="cs-fp"><span class="fp-check">✓</span>Lead Magnet</span>
+          <span class="cs-fp"><span class="fp-check">✓</span>Opt-In Page</span>
+          <span class="cs-fp"><span class="fp-check">✓</span>Thank You Page</span>
+          <span class="cs-fp"><span class="fp-check">✓</span>Welcome Emails</span>
+          <span class="cs-fp"><span class="fp-check">✓</span>FB &amp; IG Ad</span>
+        </div>
+      </div>
+      <div class="cs-content">
+        <span class="slabel">A recent build</span>
+        <h2>What we built for Heather, a kidney health practitioner.</h2>
+
+        <div class="cs-stat">
+          <p class="cs-stat-h">In her first weeks, Heather's funnel added <strong>~50 new email subscribers a week</strong>, for under $25 in ad spend.</p>
+          <p class="cs-stat-sub">That's <strong>$0.47 per subscriber</strong>. Roughly <strong>10× better</strong> than the industry average for health &amp; nutrition Meta ads.</p>
+        </div>
+
+        <p class="cs-intro">Heather Smith, RD came to us with a kidney nutrition practice and no real system for reaching new patients. Once her funnel was live, the leads started coming in immediately.</p>
+
+        <p class="cs-quote">OMG! This is so GOOD!!!! I could never have dreamed the lead magnet would be this amazing. And the emails are right on point.</p>
+        <div class="cs-attrib">
+          <div>
+            <div class="cs-attrib-name">Heather Smith, RD</div>
+            <div class="cs-attrib-role">Kidney Health Clarity</div>
+          </div>
+        </div>
+        <div class="cs-meta">
+          <div class="cs-meta-item">
+            <strong>Built and launched</strong>
+            ad, opt-in page, thank you page, lead magnet &amp; welcome emails
+          </div>
+          <div class="cs-meta-item">
+            <strong>Still running today</strong>
+            bringing in new subscribers daily
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TRANSFORM -->
+<section id="transform">
+  <div class="wrap">
+    <div class="fi">
+      <h2>Your business grows whether you're working or not. ✨</h2>
+      <p class="lead">Take the afternoon off. Go to your kid's recital. Spend a week off the grid. Your funnel keeps doing its job in the background – bringing in the right people, warming them up, and handing you a list of leads who already feel like they know you.</p>
+    </div>
+    <div class="outcome-grid fi d1">
+      <div class="outcome-item">
+        <span class="o-emoji">📬</span>
+        <span class="o-text"><strong>Wake up to new subscribers</strong> &ndash; people who found you overnight</span>
+      </div>
+      <div class="outcome-item">
+        <span class="o-emoji">🤝</span>
+        <span class="o-text"><strong>Get on calls with people who already know your work</strong> &ndash; they come in warm</span>
+      </div>
+      <div class="outcome-item">
+        <span class="o-emoji">🗓️</span>
+        <span class="o-text"><strong>Fill your practice</strong> &ndash; without adding anything to your to-do list</span>
+      </div>
+      <div class="outcome-item">
+        <span class="o-emoji">📍</span>
+        <span class="o-text"><strong>Reach people well past your local referral network</strong> &ndash; including ones who'd never have found you otherwise</span>
+      </div>
+      <div class="outcome-item">
+        <span class="o-emoji">📈</span>
+        <span class="o-text"><strong>Build an email list you actually own</strong> &ndash; working in the background between launches and busy seasons</span>
+      </div>
+      <div class="outcome-item">
+        <span class="o-emoji">😮‍💨</span>
+        <span class="o-text"><strong>Stop performing on social</strong> &ndash; the funnel runs whether you post or not</span>
+      </div>
+    </div>
+
+    <div class="section-cta section-cta-left fi d2">
+      <p class="section-cta-line">Want this running in the background of your practice?</p>
+      <a class="btn btn-p" href="#pricing">Get started</a>
+      <p class="section-cta-sub sale-only">Special pricing ends Friday, October 30 at 11:59 pm ET.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- GUT CHECK / FIT -->
+<!-- TESTIMONIAL - Holly. Sits right after the outcomes she is describing. -->
+<section class="t-band t-band-white">
+  <div class="wrap">
+    <div class="t-card fi">
+        <div class="t-person">
+          <span class="t-avatar t-avatar-holly"><img src="../holly_larson.jpg" alt="" width="400" height="400" loading="lazy" decoding="async" /></span>
+          <span class="t-meta"><span class="t-name">Holly</span><span class="t-role">Registered dietitian, GLP-1 group program</span></span>
+        </div>
+        <div class="t-body">
+          <p class="t-lead">I have yet to meet an entrepreneur who doesn&rsquo;t feel swamped with trying to navigate all the things. The service package was so high-end that it felt effortless.</p>
+          <p class="t-quote">I was thrilled for the opportunity to be able to <strong>delegate this important part of my business to a team that I trust very much.</strong> There are a lot of details and rules to know and understand in order to launch effective ads, and I was not interested in troubleshooting that by myself.</p>
+          <p class="t-quote">It&rsquo;s a unique combination of skills to work with someone who is both a registered dietitian and a marketing expert.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ABOUT / THE EXPERTS -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-head fi">
+      <h2>A small team built for exactly this kind of work.</h2>
+      <p>Strategy, brand voice, ads, and execution. All in one place. You don't need to hire a copywriter, an ads person, and a tech VA. You just need us.</p>
+    </div>
+    <div class="experts-grid fi d1">
+      <div class="expert-card">
+        <div class="expert-photo"><img src="../dfy funnel bio.jpeg" alt="Whitney Bateson" /></div>
+        <div>
+          <h3 class="expert-name">Whitney Bateson</h3>
+          <span class="expert-role">MPH, RD · Strategy &amp; Brand Voice</span>
+          <p class="expert-bio">A former dietitian turned marketing strategist for health practitioners. Whitney leads the strategy behind every funnel we build. She shapes the offer positioning, the copy direction, and makes sure everything sounds like <em>you</em>, not a generic template.</p>
+        </div>
+      </div>
+      <div class="expert-card">
+        <div class="expert-photo"><img src="../priscilla.png" alt="Priscilla Zaehringer" /></div>
+        <div>
+          <h3 class="expert-name">Priscilla Zaehringer</h3>
+          <span class="expert-role">OBM &amp; Meta Ads Specialist · Build &amp; Launch</span>
+          <p class="expert-bio">Priscilla runs the build side. She handles the pages, the ad campaigns, the email automations, and the technical setup that makes everything actually work. She's been managing ads and building systems for entrepreneurs for over 6 years.</p>
+        </div>
+      </div>
+    </div>
+
+    <figure class="pull-quote fi d2">
+      <blockquote>
+        &ldquo;Whitney and her team understand dietitians, our businesses, and how to communicate our value. <strong>This is by far one of the best decisions I have made in my business.</strong>&rdquo;
+      </blockquote>
+      <figcaption><span class="pull-quote-name">Jessica</span><span class="pull-quote-role">Registered Dietitian Nutritionist, The Eat Well Studio</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<!-- COMPARISON / GOLDILOCKS -->
+<section id="compare">
+  <div class="wrap">
+    <div class="cmp-grid">
+      <!-- DIY -->
+      <div class="cmp-col cmp-col-muted fi d1">
+        <span class="cmp-x-icon">✕</span>
+        <h3>Do it yourself</h3>
+        <ul class="cmp-list">
+          <li><span class="cmp-icon">•</span><span>Second-guessing every decision. Right lead magnet? Right emails? Is this even going to work?</span></li>
+          <li><span class="cmp-icon">•</span><span>Easy to miss a step that quietly costs you clients down the line.</span></li>
+          <li><span class="cmp-icon">•</span><span>Hours in Canva and prompting Claude until you're blue in the face, and you're still not a designer or copywriter.</span></li>
+          <li><span class="cmp-icon">•</span><span>If it doesn't convert, you have no idea why or what to fix.</span></li>
+        </ul>
+      </div>
+
+      <!-- Working with us (middle, highlighted) -->
+      <div class="cmp-col cmp-col-best fi d2">
+        <span class="cmp-pill">Just right</span>
+        <h3>Working with us</h3>
+        <ul class="cmp-list">
+          <li><span class="cmp-icon">✓</span><span>10+ years in health and nutrition. We've worked with hundreds of practice owners and health pros.</span></li>
+          <li><span class="cmp-icon">✓</span><span>Small team. We personally check every step and answer your questions directly.</span></li>
+          <li><span class="cmp-icon">✓</span><span>Not cookie-cutter. Every funnel is built for your business, your offer, your voice.</span></li>
+          <li><span class="cmp-icon">✓</span><span>We build it, then show you how it works, so you can replicate this for future funnels yourself.</span></li>
+        </ul>
+      </div>
+
+      <!-- Big marketing agency -->
+      <div class="cmp-col cmp-col-muted fi d3">
+        <span class="cmp-x-icon">✕</span>
+        <h3>Big marketing agency</h3>
+        <ul class="cmp-list">
+          <li><span class="cmp-icon">•</span><span>They don't know what "improving your labs" means or why it matters to your clients.</span></li>
+          <li><span class="cmp-icon">•</span><span>Too busy with other accounts to give you real personal support.</span></li>
+          <li><span class="cmp-icon">•</span><span>Often a one-size-fits-all template with your logo dropped on top.</span></li>
+          <li><span class="cmp-icon">•</span><span>High price tag. Junior team members doing the work, volume over quality control.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="cmp-tagline fi d2">The expertise of industry specialists. The personal attention of a small team. <strong>Without the agency price tag.</strong></p>
+
+    <div class="cmp-cta-wrap fi d3">
+      <a href="#pricing" class="btn btn-p">Yes, this is what I need →</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- AFTER YOU BUY
+     Every figure here comes from the FAQ answers further down (onboarding
+     questionnaire ~30 min, reviews 30-60 min, async/no calls, review before
+     anything else is built). Keep the two in step if either changes. -->
+<!-- RESULTS - Nathalie. Same layout as Heather's case study above, using the
+     same .cs-* component, only the copy is pitched forward rather than as a
+     report.
+     FIGURES: 66 subscribers, $1.55/lead, ~$102 spend, 64% below comparable ad
+     sets. The 64% is Meta's own comparison, hence attributed to Meta. -->
+<section id="results">
+  <div class="wrap">
+    <div class="cs-grid fi">
+      <div class="cs-image">
+        <img src="../nathalie-funnel_mockup.webp" width="1585" height="878" loading="lazy" decoding="async"
+             alt="Nathalie's done-for-you funnel: Facebook and Instagram ads, the Women's Wellness Rhythm Audit lead magnet, opt-in and thank you pages, and the automated welcome sequence" />
+      </div>
+      <div class="cs-content">
+        <span class="slabel">Another recent build</span>
+        <h2>This could be your funnel.</h2>
+
+        <div class="cs-stat">
+          <p class="cs-stat-h">Nathalie's first cold-traffic campaign brought in <strong>66 new subscribers</strong>, for about $102 in ad spend.</p>
+          <p class="cs-stat-sub">That's <strong>$1.55 per lead</strong> &ndash; <strong>64% below</strong> comparable ad sets, per Meta.</p>
+        </div>
+
+        <p class="cs-intro">Nathalie Sessions, RD runs a private nutrition practice for women in midlife. We built the Women's Wellness Rhythm Audit, the ads that bring people to it, the pages, and the welcome sequence behind it &ndash; all of it in her voice, built the same way yours would be.</p>
+
+        <p class="cs-quote">I was impressed by how well they captured my brand and messaging from the beginning. The landing page and email sequence required surprisingly few edits.</p>
+        <div class="cs-attrib">
+          <div>
+            <div class="cs-attrib-name">Nathalie Sessions, RD</div>
+            <div class="cs-attrib-role">Nutrition Sessions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL - Nathalie. Must stay BELOW #about: she names Whitney and
+     Priscilla, so she reads as a non sequitur any earlier. After #compare she
+     is also answering exactly what that section argues. -->
+<section class="t-band t-band-white">
+  <div class="wrap">
+    <div class="t-card fi">
+        <div class="t-person">
+          <span class="t-avatar t-avatar-nathalie"><img src="../nathalie_s.jpg" alt="" width="400" height="400" loading="lazy" decoding="async" /></span>
+          <span class="t-meta"><span class="t-name">Nathalie</span><span class="t-role">Registered dietitian, private nutrition practice</span></span>
+        </div>
+        <div class="t-body">
+          <p class="t-lead">I&rsquo;ve often joked that what I really need is a &ldquo;unicorn&rdquo; who understands strategy but can also handle the tech and implementation that I don&rsquo;t need to be spending my time on. I feel like the combination of you + Priscilla may be that unicorn!</p>
+          <p class="t-quote">They were thoughtful, collaborative, receptive to my feedback, and brought <strong>both strategy and technical expertise</strong> to the process.</p>
+          <p class="t-quote">When we encountered an unexpected technical issue during launch, Priscilla was incredibly diligent about troubleshooting it. I always felt supported and knew things were continuing to move forward. In fact, <strong>before we even finished this project, I engaged them for another small project.</strong></p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section id="fit">
+  <div class="wrap">
+    <div class="fit-head fi">
+      <h2>A quick gut check before you claim a spot.</h2>
+    </div>
+    <div class="fit-grid">
+      <div class="fit-col fit-col-yes fi d1">
+        <h3>This is perfect for you if...</h3>
+        <ul class="fit-list">
+          <li><span class="fit-icon">✓</span><span>You run a nutrition or health practice with a service, program, or offer you want more people joining.</span></li>
+          <li><span class="fit-icon">✓</span><span>You're ready to stop relying on social media or referrals as your only lead source.</span></li>
+          <li><span class="fit-icon">✓</span><span>You have a paid email platform (or you're open to setting one up).</span></li>
+          <li><span class="fit-icon">✓</span><span>You want a system that runs without you having to manage it.</span></li>
+        </ul>
+      </div>
+      <div class="fit-col fit-col-no fi d2">
+        <h3>It's probably not the right fit if...</h3>
+        <ul class="fit-list">
+          <li><span class="fit-icon">→</span><span>You don't have a clear offer yet, or you're still figuring out who you serve.</span></li>
+          <li><span class="fit-icon">→</span><span>You're looking for general marketing help, not specifically a lead generation funnel.</span></li>
+          <li><span class="fit-icon">→</span><span>You'd rather build it yourself and just need guidance (the Ads Made Simple course is a better fit).</span></li>
+          <li><span class="fit-icon">→</span><span>You're not in a position to invest in a small daily ad budget right now.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fit-cta fi d3">
+      <a class="btn btn-p" href="#pricing">Ready? Grab Your Spot &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section id="onboard">
+  <div class="wrap">
+    <div class="fi">
+      <span class="slabel">After you buy</span>
+      <h2>Here&rsquo;s your part.</h2>
+      <div class="ob-intro">
+        <!-- TOTAL TIME: the sum of the .flow-when figures below
+             (30+ / 15 / 30-60 / 10, plus the two-day edit window on the
+             build step). Keep the two in step. -->
+        <p class="ob-lead">It&rsquo;s about two hours total, spread over five short check-ins.</p>
+        <p class="ob-sub">Everything is async, so you won&rsquo;t be scheduling kickoff calls or squeezing weekly meetings in between clients.</p>
+      </div>
+    </div>
+
+    <div class="flow fi d1">
+      <div class="flow-step">
+        <span class="flow-dot"></span>
+        <div class="flow-body">
+          <h3>Tell us about your business</h3>
+          <p>You&rsquo;ll start by answering questions about your practice, your clients, your offer, and how you talk about your work. Do it in one sitting or a few, whatever works for you. It saves where you left off.</p>
+          <span class="flow-when"><svg class="flow-when-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span>Plan on 30+ minutes, done within three business days of purchase. We&rsquo;ll also need access to your email marketing software and website.</span></span>
+        </div>
+      </div>
+
+      <blockquote class="ob-quote ob-quote-inline">
+        <p>Answering questions via the chatbot felt way more fun than filling out a form.</p>
+        <cite>&ndash; Holly, registered dietitian</cite>
+      </blockquote>
+
+      <div class="flow-step">
+        <span class="flow-dot"></span>
+        <div class="flow-body">
+          <h3>Get your schedule and connect your accounts</h3>
+          <p>Once your questionnaire is in, we&rsquo;ll send your project schedule with every milestone, what we need from you at each one, and your go-live date. Look it over and let us know if any dates won&rsquo;t work.</p>
+          <p>You&rsquo;ll also get a link to connect your Meta ad account. Click it, approve access, and you&rsquo;re set. No digging through Business Manager. (If you don&rsquo;t have a Meta ad account yet, we&rsquo;ll help you set one up.)</p>
+          <span class="flow-when"><svg class="flow-when-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span>About 15 minutes, before production starts.</span></span>
+        </div>
+      </div>
+
+      <div class="flow-step flow-step-us">
+        <span class="flow-dot"></span>
+        <div class="flow-body">
+          <h3>We write your lead magnet and emails</h3>
+          <p>We&rsquo;ll send the title and a quick summary of your lead magnet, so you know what we&rsquo;re building before we write it.</p>
+          <p>Then we take everything you&rsquo;ve shared and write the lead magnet, your delivery email, and your welcome sequence, using your words and the questions your clients actually ask you.</p>
+          <span class="flow-when"><svg class="flow-when-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span>Nothing needed from you here.</span></span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <span class="flow-dot"></span>
+        <div class="flow-body">
+          <h3>Review the lead magnet and emails</h3>
+          <p>Read through the lead magnet and emails, then send your feedback in a simple feedback form. Tell us what you love, what feels off, and anything you&rsquo;d say differently. We&rsquo;ll make the changes. Once the copy sounds like you, we build the pages and ads around it.</p>
+          <span class="flow-when"><svg class="flow-when-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span>About 30 to 60 minutes, within three business days.</span></span>
+        </div>
+      </div>
+
+      <div class="flow-step flow-step-us">
+        <span class="flow-dot"></span>
+        <div class="flow-body">
+          <h3>We build the rest</h3>
+          <p>We build your opt-in and thank you pages, connect your email platform, set up the automation that sends leads from Meta to your list, and create your ads in your own ad account. Your ads are written to Meta&rsquo;s health and nutrition rules from day one, so they steer clear of the personal attribute language that gets so many practitioners flagged. We test the whole thing from opt-in to inbox before it gets to you.</p>
+          <span class="flow-when"><svg class="flow-when-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span>You&rsquo;ll have two business days to send any edits on the pages, ad copy, and creative.</span></span>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <span class="flow-dot"></span>
+        <div class="flow-body">
+          <h3>Turn it on</h3>
+          <p>We start you at $5 a day, and you can adjust from there. Turn it on whenever you&rsquo;re ready. The ad account and payment method are yours the whole time. For seven business days after launch, email us with any campaign questions and we&rsquo;ll get back to you within one business day.</p>
+          <span class="flow-when"><svg class="flow-when-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg><span>About 10 minutes.</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ob-needs fi d2">
+      <h3>What you&rsquo;ll need</h3>
+      <ul>
+        <li>A <strong>paid email platform</strong> with automations, tagging, and opt-in forms.</li>
+        <li>A <strong>live website</strong>.</li>
+        <li>A <strong>paid Zapier plan</strong> that supports multi-step automations, which is what moves leads from Meta into your email list. You&rsquo;ll set it up when your schedule arrives, and we suggest monthly so you can pause it in months you&rsquo;re not running ads. Already covered if you&rsquo;re on GoHighLevel.</li>
+        <li>An <strong>ad budget</strong>, paid directly to Meta and separate from the build. We suggest starting around $5 a day, roughly $150 a month.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="fi">
+      <h2>One team. <span class="hl">One price.</span> Your funnel done for you.</h2>
+    </div>
+
+    <!-- Comparison panel – collapsed by default -->
+    <details class="comparison fi d1">
+      <summary class="comparison-toggle">
+        <span><u>Click here</u> to see what this would normally cost</span>
+        <span class="c-toggle-icon">+</span>
+      </summary>
+      <div class="comparison-list">
+        <p class="comparison-intro">For context, here's roughly what you'd pay to hire each piece separately.</p>
+        <!-- These six lines are the same figures as the funnel cards, in the
+             same order, so the subtotal matches the one in that section. If a
+             card's "cost to outsource" changes, change it here too. -->
+        <div class="comparison-row">
+          <span class="c-label">Lead magnet &ndash; research, copy, and design</span>
+          <span class="c-price">$1,500+</span>
+        </div>
+        <div class="comparison-row">
+          <span class="c-label">Facebook &amp; Instagram ad campaign</span>
+          <span class="c-price">$1,500+</span>
+        </div>
+        <div class="comparison-row">
+          <span class="c-label">Opt-in page &ndash; copy, design, and integration</span>
+          <span class="c-price">$1,100+</span>
+        </div>
+        <div class="comparison-row">
+          <span class="c-label">Thank you page</span>
+          <span class="c-price">$350+</span>
+        </div>
+        <div class="comparison-row">
+          <span class="c-label">Delivery email + welcome sequence</span>
+          <span class="c-price">$1,600+</span>
+        </div>
+        <div class="comparison-sub sale-only">
+          <span class="c-label">The funnel, hired out piece by piece</span>
+          <span class="c-price">$6,050+</span>
+        </div>
+        <div class="comparison-row sale-only">
+          <span class="c-label">Plus your bonuses &ndash; Funnel Command Center, ad support, Ads Made Simple</span>
+          <span class="c-price">$1,091+</span>
+        </div>
+        <div class="comparison-total sale-only">
+          <span class="c-label">Hiring it all out, separately</span>
+          <span class="c-price">$7,141+</span>
+        </div>
+        <div class="comparison-total full-only">
+          <span class="c-label">Hiring it all out, separately</span>
+          <span class="c-price">$6,050+</span>
+        </div>
+        <!-- Standard price on purpose: this row compares like for like against
+             hiring it out. The sale price is revealed in .p-box just below. -->
+        <div class="comparison-ours">
+          <span class="c-label"><span class="nb">What we do.</span> One team, start to launch.</span>
+          <span class="c-price">$1,997</span>
+        </div>
+      </div>
+    </details>
+
+    <div class="p-box fi d1">
+      <div class="beta-badge">
+        <span class="beta-dot"></span>
+        Done-For-You Funnel
+      </div>
+
+      <!-- PRICE. .sale-only shows until the deadline, .full-only after it. -->
+      <span class="price-was sale-only">$1,997</span>
+      <span class="price-big"><span class="sale-only">$1,597</span><span class="full-only">$1,997</span></span>
+      <p class="price-note sale-only"><strong>Save $400.</strong> Special pricing ends Friday, October 30 at 11:59 pm ET.</p>
+      <p class="price-note price-note-full full-only">Want $400 off plus the bonuses? Join the next free training.</p>
+      <p class="p-caption">One-time payment. No ongoing fees from us.</p>
+
+      <hr class="p-divider"/>
+
+      <span class="p-eyebrow">What you get</span>
+      <ul class="inc-list">
+        <li>Lead magnet, created to attract right-fit leads to your offers</li>
+        <li>Opt-in page with copy, design, and email platform connection</li>
+        <li>Thank you page</li>
+        <li>Delivery email + welcome sequence, written and set up</li>
+        <li>Facebook &amp; Instagram ad campaign – copy, creative, targeting, and launch</li>
+        <li class="inc-bonus sale-only"><span><span class="inc-bonus-tag">Bonus</span><strong>Your Funnel Command Center</strong> – Notion hub with walkthrough videos and every file we built</span></li>
+        <li class="inc-bonus sale-only"><span><span class="inc-bonus-tag">Bonus</span><strong>7 days of support</strong> while your ads go live</span></li>
+        <li class="inc-bonus sale-only"><span><span class="inc-bonus-tag">Bonus</span><strong>Ads Made Simple course</strong> – learn how to run, edit, and monitor your own ads</span></li>
+      </ul>
+
+      <hr class="p-divider"/>
+
+      <p class="p-ad">+ ad spend (~$150/mo at $5/day) goes directly to Meta. You control the budget and can pause your ads at anytime. The funnel still works to bring in leads every day.</p>
+
+      <hr class="p-divider"/>
+
+
+      <a class="btn btn-p btn-block sale-only" href="https://whitneybateson.thrivecart.com/done-for-you-funnel/?coupon=SAVE400" target="_blank" rel="noopener">Get started · $1,597</a>
+      <a class="btn btn-p btn-block full-only" href="https://whitneybateson.thrivecart.com/done-for-you-funnel/" target="_blank" rel="noopener">Get started · $1,997</a>
+      <!-- Accepted cards, shown under the buy button. Inline SVG, no image files. -->
+      <div class="p-pay" aria-label="Secure checkout. We accept Visa, Mastercard, American Express and Discover.">
+        <span class="p-pay-secure"><svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 0 1 6 0v3H9z"/></svg>Secure checkout</span>
+        <span class="p-pay-cards" aria-hidden="true">
+          <svg viewBox="0 0 48 30" class="p-card"><rect width="48" height="30" rx="4" fill="#fff" stroke="#d9d9d9"/><text x="24" y="20" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="900" font-style="italic" fill="#1a1f71">VISA</text></svg>
+          <svg viewBox="0 0 48 30" class="p-card"><rect width="48" height="30" rx="4" fill="#fff" stroke="#d9d9d9"/><circle cx="19.5" cy="15" r="8" fill="#eb001b"/><circle cx="28.5" cy="15" r="8" fill="#f79e1b"/><path d="M24 8.4a8 8 0 0 1 0 13.2 8 8 0 0 1 0-13.2z" fill="#ff5f00"/></svg>
+          <svg viewBox="0 0 48 30" class="p-card"><rect width="48" height="30" rx="4" fill="#2e77bc"/><text x="24" y="19" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9.5" font-weight="900" fill="#fff">AMEX</text></svg>
+          <svg viewBox="0 0 48 30" class="p-card"><rect width="48" height="30" rx="4" fill="#fff" stroke="#d9d9d9"/><text x="5" y="18.5" font-family="Arial,Helvetica,sans-serif" font-size="7.4" font-weight="700" fill="#231f20">DISC</text><circle cx="28.3" cy="15.9" r="3.3" fill="#f58220"/><text x="31.8" y="18.5" font-family="Arial,Helvetica,sans-serif" font-size="7.4" font-weight="700" fill="#231f20">VER</text></svg>
+        </span>
+      </div>
+      <p class="p-split">Payment plan also available</p>
+
+      <div class="p-call">
+        <p class="p-call-q">Want to chat first?</p>
+        <a class="p-call-link" href="https://whitneybateson.as.me/dfy-funnel-discovery" target="_blank" rel="noopener">Book a 20-min call with Whitney →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="fi">
+      <h2>A few questions you might have. 🙋</h2>
+    </div>
+    <div class="faq-list fi d1">
+
+      <details class="faq-item">
+        <summary class="faq-q">What if I don't have a lead magnet yet?</summary>
+        <div class="faq-a">No problem, creating one is part of the service we're offering here. We'll learn about your services and audience, then work with you to build something that makes sense for your practice. If you already have one, we use it or can clean it up.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What email platform do I need?</summary>
+        <div class="faq-a">You'll need a paid email platform that supports tagging, automations, and opt-in forms, like ConvertKit (Kit), Mailchimp, ActiveCampaign, Mailerlite, or Flodesk. Not sure if yours qualifies? Just ask before purchasing. If you don't have one yet, we can help you set it up.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Do I need a website?</summary>
+        <div class="faq-a">A website is helpful for hosting your thank you page, and it's also where your emails will send people to learn more about your services – so it's definitely an important part of the funnel. If you don't have one however, reach out before purchasing and we'll figure out the best path. It's not always a dealbreaker.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">How much will the ads cost me?</summary>
+        <div class="faq-a">About $150/month at $5/day, paid directly to Meta. That's separate from the <span class="sale-only">$1,597</span><span class="full-only">$1,997</span> you pay us. You own the ad account, control the budget, and can pause anytime.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">What happens after 7 days of support?</summary>
+        <div class="faq-a">
+          <p>Those seven business days cover anything to do with the campaign: performance, spend, audience adjustments, Meta review issues, or leads not landing where they should. You'll hear back within one business day. The window runs on set dates, so the sooner you turn your ads on, the more of it you get to use on live performance.</p>
+          <p>After that, the funnel keeps running without us. Most practitioners leave it going in the background with minimal maintenance. If you want continued support, we can talk options, but it's not required.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Will this work for my specific practice?</summary>
+        <div class="faq-a">If you have a clear service you're offering and are ready to start growing your list and bringing in more leads, this will work for you. The funnel we build is designed to be simple, effective, and tailored to your specific audience and niche, not a generic template. If you're not sure, the 20-minute call is the perfect place to talk it through before committing.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Will there be any live calls involved?</summary>
+        <div class="faq-a">We don't anticipate needing to get on any calls. All of the work is done asynchronously – we get started, you check this off your to-do list! Everything is communicated through our project tools and email, so there's no scheduling required on your end.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">How much work will I need to do?</summary>
+        <div class="faq-a">Not much, and it's spread out. About 30 minutes answering questions about your business up front, 15 to look over your project schedule and connect your accounts, 30 to 60 minutes to review the copy once it's written, and about 10 to turn the ads on. Roughly two hours in total, on your own time. We handle everything else.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">How will you make sure everything sounds like me and matches my brand?</summary>
+        <div class="faq-a">We collect the key details from you upfront using our intake tools – your voice, your values, your audience, and your style. Everything we create is built from that foundation. We base all copy, design, and messaging on your brand, not a generic template. You'll also have a chance to review and give feedback before anything goes live.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-q">Do you use AI in your process?</summary>
+        <div class="faq-a">Yes, here’s why and how we do it: AI helps us move faster on drafts, copy variations, and research – the same way any good professional uses the best tools available. But the quality of AI output depends entirely on who's guiding it. We've spent 10+ years combined working exclusively with health and nutrition practitioners, so we know what a good lead magnet looks like for this audience, what tone actually converts, and what needs fixing when the output misses the mark. That expertise is what makes the tool work.
+<br>You're also closely involved throughout. You review your lead magnet and email sequence before we build anything else, to make sure everything sounds like you and says what you actually want to say to your potential clients. Everything we build after that follows your lead.</br></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- CLOSE -->
+<section id="close">
+  <!-- BACKGROUND VIDEO
+       Swap office.mp4 for any browser-playable H.264 .mp4 (or add a <source>
+       for .webm). It is loaded only when the section nears the viewport, and
+       only on larger screens without a reduced-motion or data-saver
+       preference - everyone else keeps the flat navy band.
+       Delete this <video> and the .close-scrim div to go back to plain navy. -->
+  <video class="close-video" data-src="../office.mp4" muted loop playsinline
+         preload="none" aria-hidden="true" tabindex="-1"></video>
+  <div class="close-scrim" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="fi">
+      <h2>If you've been meaning to build this for a while, <span class="ul">this is the shortcut</span>.</h2>
+      <p class="sub"><span class="nb sale-only">$1,597 one-time, until Friday, October 30 at 11:59 pm ET.</span><span class="nb full-only">$1,997 one-time.</span> <span class="nb">We do the work. You finally get a system bringing in new leads while you focus on your practice.</span></p>
+      <div class="close-ctas">
+        <a class="btn btn-p" href="#pricing">Get started · <span class="sale-only">$1,597</span><span class="full-only">$1,997</span></a>
+        <a class="btn btn-s" href="https://whitneybateson.as.me/dfy-funnel-discovery" target="_blank" rel="noopener">Book a call first</a>
+      </div>
+      <p class="close-note">Questions? Email me at <a href="mailto:info@whitneybateson.com">info@whitneybateson.com</a></p>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Whitney Bateson &nbsp;·&nbsp; <a href="https://whitneybateson.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://whitneybateson.com/terms-conditions-dfy-funnel/" target="_blank" rel="noopener">Terms &amp; Conditions</a></p>
+  </div>
+</footer>
+
+<script>
+history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+const els = document.querySelectorAll('.fi');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+els.forEach(el => io.observe(el));
+</script>
+
+<script>
+(function(){
+  const subs   = document.getElementById('calc-subs');
+  const conv   = document.getElementById('calc-conv');
+  const value  = document.getElementById('calc-value');
+  if (!subs) return;
+  const subsOut  = document.getElementById('calc-subs-out');
+  const convOut  = document.getElementById('calc-conv-out');
+  const valueOut = document.getElementById('calc-value-out');
+  const monthly  = document.getElementById('calc-monthly');
+  const annual   = document.getElementById('calc-annual');
+  const caption  = document.getElementById('calc-caption');
+
+  const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+
+  function update(){
+    const s = parseInt(subs.value, 10);
+    const c = parseFloat(conv.value);
+    const v = parseInt(value.value, 10);
+    const m = s * (c / 100) * v;
+    const y = m * 12;
+
+    subsOut.textContent  = s.toLocaleString('en-US');
+    convOut.textContent  = c + '%';
+    valueOut.textContent = fmt(v);
+    monthly.textContent  = fmt(m);
+    annual.textContent   = fmt(y);
+
+    const n   = Math.round(s * (c / 100) * 12);
+    const ppl = n === 1 ? 'client' : 'clients';
+
+    /* Bands are keyed to the ANNUAL figure, and the comparison has to stay
+       plausible at the bottom of each band - no "vacation" at $29k. */
+    let line;
+    if (y < 10000)       line = "That's " + n + " " + ppl + " a year you never got to work with.";
+    else if (y < 30000)  line = "That's " + n + " " + ppl + " a year \u2014 enough to pay off the car, or clear the credit line.";
+    else if (y < 60000)  line = "That's " + n + " " + ppl + " a year \u2014 a year of tuition, or a down payment.";
+    else if (y < 100000) line = "That's " + n + " " + ppl + " a year: a full-time salary sitting in a draft folder.";
+    else                 line = "That's " + n + " " + ppl + " a year \u2014 a six-figure practice hiding in an unfinished funnel.";
+    caption.textContent = line;
+  }
+
+  subs.addEventListener('input', update);
+  conv.addEventListener('input', update);
+  value.addEventListener('input', update);
+  update();   // keeps the rendered caption honest if the defaults ever change
+})();
+</script>
+
+<script>
+/* What-we-build slider. The track scrolls and snaps on its own; this only
+   adds the arrows and dots, so with JS off the cards are still swipeable.
+   "How many are visible" is read back from the rendered layout rather than
+   hardcoded, so the CSS breakpoints stay the single source of truth. */
+(function(){
+  var track = document.getElementById('funnel-track');
+  if(!track) return;
+  var cards = Array.prototype.slice.call(track.children);
+  if(cards.length < 2) return;
+
+  var nav = document.createElement('div');
+  nav.className = 'funnel-nav';
+  var prev = document.createElement('button');
+  var next = document.createElement('button');
+  prev.type = next.type = 'button';
+  prev.className = next.className = 'funnel-arrow';
+  prev.innerHTML = '\u2190'; next.innerHTML = '\u2192';
+  prev.setAttribute('aria-label','Previous');
+  next.setAttribute('aria-label','Next');
+  var dotWrap = document.createElement('div');
+  dotWrap.className = 'funnel-dots';
+
+  var dots = cards.map(function(card, i){
+    var d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'funnel-dot';
+    d.setAttribute('aria-label','Go to ' + (i + 1) + ' of ' + cards.length);
+    d.addEventListener('click', function(){ scrollToCard(i); });
+    dotWrap.appendChild(d);
+    return d;
+  });
+
+  nav.appendChild(prev); nav.appendChild(dotWrap); nav.appendChild(next);
+  track.parentNode.appendChild(nav);
+
+  /* Card pitch including the gap - measured, so the gap value only lives
+     in the CSS. Two cards is enough to derive it. */
+  function pitch(){
+    return cards.length > 1
+      ? cards[1].offsetLeft - cards[0].offsetLeft
+      : cards[0].offsetWidth;
+  }
+  function perView(){
+    return Math.max(1, Math.round(track.clientWidth / pitch()));
+  }
+  /* Last card that can sit flush left before the track runs out of scroll. */
+  function maxIndex(){
+    return Math.max(0, cards.length - perView());
+  }
+  function currentIndex(){
+    return Math.min(maxIndex(), Math.round(track.scrollLeft / pitch()));
+  }
+  function scrollToCard(i){
+    track.scrollTo({
+      left: Math.min(i, maxIndex()) * pitch(),
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  }
+
+  prev.addEventListener('click', function(){ scrollToCard(currentIndex() - perView()); });
+  next.addEventListener('click', function(){ scrollToCard(currentIndex() + perView()); });
+
+  function sync(){
+    var i = currentIndex(), last = maxIndex();
+    prev.disabled = i <= 0;
+    next.disabled = i >= last;
+    /* A dot is current when its card is on screen. */
+    var visible = perView();
+    dots.forEach(function(d, n){
+      d.setAttribute('aria-current', (n >= i && n < i + visible) ? 'true' : 'false');
+      /* Nothing to navigate to past the last reachable position. */
+      d.hidden = n > last && visible >= cards.length;
+    });
+    nav.hidden = last === 0;   /* everything already fits */
+  }
+
+  var queued = false;
+  track.addEventListener('scroll', function(){
+    if(queued) return;
+    queued = true;
+    requestAnimationFrame(function(){ queued = false; sync(); });
+  });
+  window.addEventListener('resize', sync);
+  sync();
+})();
+</script>
+
+<script>
+/* Countdowns. Every .js-countdown on the page is driven from here: each one
+   reads data-deadline off itself, or off <body> when it has none, and fills
+   any [data-unit=d|h|m|s] inside it. One timer ticks them all.
+
+   When the deadline passes a clock hides itself, and any .sb-live/.sb-expired
+   pair in the same section swaps over. A missing or unparseable date just
+   hides that clock and leaves the rest of the page working. */
+(function(){
+  var clocks = Array.prototype.slice.call(document.querySelectorAll('.js-countdown'));
+  if(!clocks.length) return;
+  var pageDeadline = document.body.getAttribute('data-deadline') || '';
+
+  var live = clocks.map(function(el){
+    var target = Date.parse(el.getAttribute('data-deadline') || pageDeadline);
+    if(!target || isNaN(target)){ el.hidden = true; return null; }
+    return { el: el, target: target, out: {
+      d: el.querySelector('[data-unit="d"]'), h: el.querySelector('[data-unit="h"]'),
+      m: el.querySelector('[data-unit="m"]'), s: el.querySelector('[data-unit="s"]')
+    }};
+  }).filter(Boolean);
+  if(!live.length) return;
+
+  function pad(n){ return n < 10 ? '0' + n : String(n); }
+
+  function expire(c){
+    c.el.hidden = true;
+    if(!c.el.hasAttribute('data-deadline')) document.body.classList.add('offer-closed');
+    /* Take the "Bonuses expire in" label down with its clock. */
+    var wrap = c.el.closest && c.el.closest('.bonus-timer');
+    if(wrap) wrap.hidden = true;
+    /* Swap the copy beside this clock, where the section has a pair. */
+    var scope = (c.el.closest && c.el.closest('section, .offer-bar')) || document;
+    var on  = scope.querySelector('.sb-live');
+    var off = scope.querySelector('.sb-expired');
+    if(on)  on.hidden = true;
+    if(off) off.hidden = false;
+  }
+
+  function tick(){
+    var now = Date.now();
+    live = live.filter(function(c){
+      var left = c.target - now;
+      if(left <= 0){ expire(c); return false; }
+      var secs = Math.floor(left / 1000);
+      if(c.out.d) c.out.d.textContent = String(Math.floor(secs / 86400));
+      if(c.out.h) c.out.h.textContent = pad(Math.floor(secs / 3600) % 24);
+      if(c.out.m) c.out.m.textContent = pad(Math.floor(secs / 60) % 60);
+      if(c.out.s) c.out.s.textContent = pad(secs % 60);
+      return true;
+    });
+    if(!live.length) clearInterval(timer);
+  }
+
+  tick();
+  var timer = setInterval(tick, 1000);
+})();
+</script>
+
+<script>
+/* Replay banner: swap the still for the embed on click.
+   Inert until data-video-src on #replay-cover has a URL. */
+(function(){
+  var cover = document.getElementById('replay-cover');
+  var frame = document.getElementById('replay-iframe');
+  if(!cover || !frame) return;
+  var src = (cover.getAttribute('data-video-src') || '').trim();
+  if(!src){ cover.disabled = true; return; }
+  cover.addEventListener('click', function(){
+    frame.src = src;
+    frame.hidden = false;
+    cover.remove();
+  });
+})();
+</script>
+
+<script>
+/* Closing section background video. Deliberately conservative: nothing is
+   downloaded until the section is close to view, and never on small screens,
+   reduced-motion, or data-saver. Any failure leaves the flat navy band. */
+(function(){
+  var v = document.querySelector('.close-video');
+  var sec = document.getElementById('close');
+  if(!v || !sec || !v.dataset.src) return;
+
+  var mq = function(q){ return window.matchMedia && window.matchMedia(q).matches; };
+  var conn = navigator.connection || {};
+  if (mq('(prefers-reduced-motion: reduce)') || mq('(max-width: 860px)') || conn.saveData) {
+    v.remove();
+    return;
+  }
+
+  function start(){
+    v.addEventListener('canplay', function(){ v.classList.add('ready'); }, { once:true });
+    v.addEventListener('error', function(){ v.remove(); }, { once:true });
+    v.preload = 'auto';
+    v.src = v.dataset.src;
+    var played = v.play();
+    if (played && played.catch) played.catch(function(){ v.remove(); });
+  }
+
+  if (!('IntersectionObserver' in window)) { start(); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { io.disconnect(); start(); }
+    });
+  }, { rootMargin: '400px' });
+  io.observe(sec);
+})();
+</script>
+
+<!-- Charla Chat Widget -->
+<script>
+  window.addEventListener('load', function() {
+    var widgetElement = document.createElement('charla-widget');
+    widgetElement.setAttribute("p", "d2cc65b6-3d1c-4ba2-8408-6fa0f507d646");
+    document.body.appendChild(widgetElement);
+    var widgetCode = document.createElement('script');
+    widgetCode.src = 'https://app.charla.com/widget/widget.js';
+    document.body.appendChild(widgetCode);
+  });
+</script>
+</body>
+</html>
