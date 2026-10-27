@@ -15,10 +15,11 @@ const root = __dirname;
 const config = JSON.parse(fs.readFileSync(path.join(root, 'events.json'), 'utf8'));
 const template = fs.readFileSync(path.join(root, 'template.html'), 'utf8');
 const tz = config.timezone || 'America/New_York';
-/* Where late visitors go to earn the discount again: the weekly webinar
-   registration page. Set once in events.json as "nextTrainingUrl". */
+/* Where visitors go once an event's offer ends: the weekly webinar
+   registration page. Set once in events.json as "nextTrainingUrl". Leave it
+   empty and closed pages stay up at full price instead of redirecting. */
 const trainingUrl = (config.nextTrainingUrl || '').trim();
-if (!trainingUrl) console.warn('build.js: events.json has no nextTrainingUrl, so "Join the next free training" will not be a link');
+if (!trainingUrl) console.warn('build.js: events.json has no nextTrainingUrl, so closed pages will show full price instead of redirecting');
 
 function fail(msg) { console.error('build.js: ' + msg); process.exit(1); }
 
@@ -90,6 +91,7 @@ const built = slugs.map(slug => {
     DEADLINE_DAY: w.day,
     CHECKOUT_URL: amp(ev.checkoutUrl),
     CHECKOUT_URL_FULL: amp(fullUrl),
+    TRAINING_URL: trainingUrl ? amp(trainingUrl) : '',
     TRAINING_LINK_OPEN: trainingUrl ? `<a href="${amp(trainingUrl)}">` : '',
     TRAINING_LINK_CLOSE: trainingUrl ? '</a>' : '',
     REPLAY_HIDDEN: videoId ? '' : ' hidden',
@@ -107,12 +109,13 @@ const built = slugs.map(slug => {
   fs.mkdirSync(path.join(root, slug), { recursive: true });
   fs.writeFileSync(path.join(root, slug, 'index.html'), html);
   console.log(`${slug}/index.html  - offer ends ${w.long}  (${close.iso})` + (videoId ? '' : '  - replay banner hidden'));
-  console.log(`    after that: full price via ${fullUrl}`);
+  console.log(trainingUrl ? `    after that: redirects to ${trainingUrl}` : `    after that: full price via ${fullUrl}`);
   return { slug, close: close.iso, at: close.instant.getTime() };
 }).sort((a, b) => a.at - b.at);
 
 /* The bare folder URL forwards to whichever event is still open: the first
-   one whose offer has not ended yet, or the most recent once all have. */
+   one whose offer has not ended yet. Once all have ended it goes to the next
+   training (or the most recent event when there is no training link). */
 const list = JSON.stringify(built.map(e => ({ slug: e.slug, close: e.close })));
 const last = built[built.length - 1].slug;
 fs.writeFileSync(path.join(root, 'index.html'), `<!DOCTYPE html>
@@ -125,11 +128,12 @@ ${banner}<html lang="en">
 <script>
 (function(){
   var events = ${list};
-  var now = Date.now(), go = events[events.length - 1].slug;
+  var now = Date.now(), go = events[events.length - 1].slug + '/', open = false;
   for (var i = 0; i < events.length; i++) {
-    if (Date.parse(events[i].close) > now) { go = events[i].slug; break; }
+    if (Date.parse(events[i].close) > now) { go = events[i].slug + '/'; open = true; break; }
   }
-  location.replace(go + '/' + location.search + location.hash);
+  if (!open && ${JSON.stringify(trainingUrl)}) { location.replace(${JSON.stringify(trainingUrl)}); return; }
+  location.replace(go + location.search + location.hash);
 })();
 </script>
 <noscript><meta http-equiv="refresh" content="0; url=${last}/" /></noscript>

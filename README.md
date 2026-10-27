@@ -36,7 +36,9 @@ forwards to whichever event's offer is still open.
 
 ## After the deadline
 
-The page switches itself in the visitor's browser the moment `cartClose` passes. No redeploy needed.
+The moment `cartClose` passes, the page sends visitors to the next free training: `nextTrainingUrl` at the top of `events.json` (currently `https://offers.whitneybateson.com/list-building-webinar/`). This happens in the visitor's browser, so no redeploy is needed. Someone sitting on the page when the clock hits zero is sent there too. The bare `/funnel/` link goes there as well once every event has ended.
+
+If `nextTrainingUrl` is empty, closed pages stay up in a full-price version instead:
 
 - Price goes to $1,997 everywhere (pricing box, FAQ, closing section, comparison).
 - The bonus section, the bonus lines in the pricing box, and the "special pricing ends" lines disappear.

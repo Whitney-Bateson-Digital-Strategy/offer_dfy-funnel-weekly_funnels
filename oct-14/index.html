@@ -805,11 +805,15 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
 }
 </style>
 </head>
-<body data-deadline="2026-10-20T23:59:59-04:00">
+<body data-deadline="2026-10-20T23:59:59-04:00" data-after-close="https://offers.whitneybateson.com/list-building-webinar/">
 <script>
-/* Past the deadline? Switch to the full-price version before the page draws. */
+/* Past the deadline? Send the visitor to the next free training. Without a
+   training link, switch to the full-price version before the page draws. */
 (function(){ var t = Date.parse(document.body.getAttribute('data-deadline'));
-  if(t && t <= Date.now()) document.body.classList.add('offer-closed'); })();
+  if(!(t && t <= Date.now())) return;
+  var next = document.body.getAttribute('data-after-close');
+  if(next) location.replace(next);
+  else document.body.classList.add('offer-closed'); })();
 </script>
 
 <!-- ══ STICKY OFFER BAR ════════════════════════════════════════════════
@@ -832,7 +836,7 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
         <span class="sb-dot"></span>
         <span>
           <span class="sb-live">Get your funnel plus <span class="sb-hl">$1,491 in bonuses and discounts</span> when you enroll by Tuesday, October 20 at 11:59 pm ET.</span>
-          <span class="sb-expired" hidden>This offer ended Tuesday, October 20. Want the $400 off and the bonuses? Join the next free training.</span>
+          <span class="sb-expired" hidden>This offer ended Tuesday, October 20. Want the $400 off and the bonuses? <a href="https://offers.whitneybateson.com/list-building-webinar/">Join the next free training</a>.</span>
         </span>
       </p>
       <div class="sb-actions">
@@ -1698,7 +1702,7 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
       <span class="price-was sale-only">$1,997</span>
       <span class="price-big"><span class="sale-only">$1,597</span><span class="full-only">$1,997</span></span>
       <p class="price-note sale-only"><strong>Save $400.</strong> Special pricing ends Tuesday, October 20 at 11:59 pm ET.</p>
-      <p class="price-note price-note-full full-only">Want $400 off plus the bonuses? Join the next free training.</p>
+      <p class="price-note price-note-full full-only">Want $400 off plus the bonuses? <a href="https://offers.whitneybateson.com/list-building-webinar/">Join the next free training</a>.</p>
       <p class="p-caption">One-time payment. No ongoing fees from us.</p>
 
       <hr class="p-divider"/>
@@ -2019,7 +2023,12 @@ els.forEach(el => io.observe(el));
 
   function expire(c){
     c.el.hidden = true;
-    if(!c.el.hasAttribute('data-deadline')) document.body.classList.add('offer-closed');
+    if(!c.el.hasAttribute('data-deadline')){
+      /* The page's own deadline: leave for the next training when there is one. */
+      var next = document.body.getAttribute('data-after-close');
+      if(next){ location.replace(next); return; }
+      document.body.classList.add('offer-closed');
+    }
     /* Take the "Bonuses expire in" label down with its clock. */
     var wrap = c.el.closest && c.el.closest('.bonus-timer');
     if(wrap) wrap.hidden = true;

@@ -804,11 +804,15 @@ details[open] .comparison-toggle .c-toggle-icon{transform:rotate(45deg)}
 }
 </style>
 </head>
-<body data-deadline="{{DEADLINE_ISO}}">
+<body data-deadline="{{DEADLINE_ISO}}" data-after-close="{{TRAINING_URL}}">
 <script>
-/* Past the deadline? Switch to the full-price version before the page draws. */
+/* Past the deadline? Send the visitor to the next free training. Without a
+   training link, switch to the full-price version before the page draws. */
 (function(){ var t = Date.parse(document.body.getAttribute('data-deadline'));
-  if(t && t <= Date.now()) document.body.classList.add('offer-closed'); })();
+  if(!(t && t <= Date.now())) return;
+  var next = document.body.getAttribute('data-after-close');
+  if(next) location.replace(next);
+  else document.body.classList.add('offer-closed'); })();
 </script>
 
 <!-- ══ STICKY OFFER BAR ════════════════════════════════════════════════
@@ -2018,7 +2022,12 @@ els.forEach(el => io.observe(el));
 
   function expire(c){
     c.el.hidden = true;
-    if(!c.el.hasAttribute('data-deadline')) document.body.classList.add('offer-closed');
+    if(!c.el.hasAttribute('data-deadline')){
+      /* The page's own deadline: leave for the next training when there is one. */
+      var next = document.body.getAttribute('data-after-close');
+      if(next){ location.replace(next); return; }
+      document.body.classList.add('offer-closed');
+    }
     /* Take the "Bonuses expire in" label down with its clock. */
     var wrap = c.el.closest && c.el.closest('.bonus-timer');
     if(wrap) wrap.hidden = true;
