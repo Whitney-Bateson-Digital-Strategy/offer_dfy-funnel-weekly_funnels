@@ -9,11 +9,12 @@
 <script>
 (function(){
   var events = [{"slug":"oct-14","close":"2026-10-20T23:59:59-04:00"},{"slug":"oct-26","close":"2026-10-30T23:59:59-04:00"}];
-  var now = Date.now(), go = events[events.length - 1].slug;
+  var now = Date.now(), go = events[events.length - 1].slug + '/', open = false;
   for (var i = 0; i < events.length; i++) {
-    if (Date.parse(events[i].close) > now) { go = events[i].slug; break; }
+    if (Date.parse(events[i].close) > now) { go = events[i].slug + '/'; open = true; break; }
   }
-  location.replace(go + '/' + location.search + location.hash);
+  if (!open && "https://offers.whitneybateson.com/list-building-webinar/") { location.replace("https://offers.whitneybateson.com/list-building-webinar/"); return; }
+  location.replace(go + location.search + location.hash);
 })();
 </script>
 <noscript><meta http-equiv="refresh" content="0; url=oct-26/" /></noscript>
